@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF569A1715740144003853B7 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A1515740144003853B7 /* DetailsViewController.m */; };
-		AF569A1815740144003853B7 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF569A1615740144003853B7 /* DetailsViewController.xib */; };
 		AF569A341574151F003853B7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF569A331574151F003853B7 /* QuickLook.framework */; };
 		AF569A3E15741D87003853B7 /* AssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A3D15741D87003853B7 /* AssetViewController.m */; };
 		AF569A4515746B16003853B7 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4315746B16003853B7 /* SyncViewController.m */; };
@@ -30,9 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF569A1415740144003853B7 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		AF569A1515740144003853B7 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
-		AF569A1615740144003853B7 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		AF569A2A157406E1003853B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		AF569A3C15741D87003853B7 /* AssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetViewController.h; sourceTree = "<group>"; };
@@ -96,9 +91,6 @@
 		AF569A4015746A8F003853B7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF569A1615740144003853B7 /* DetailsViewController.xib */,
-				AF569A1415740144003853B7 /* DetailsViewController.h */,
-				AF569A1515740144003853B7 /* DetailsViewController.m */,
 				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
 				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
 				AF569A3C15741D87003853B7 /* AssetViewController.h */,
@@ -227,7 +219,6 @@
 			files = (
 				AF82516B1573D3E40002C619 /* InfoPlist.strings in Resources */,
 				AF8251811573D77C0002C619 /* CheckoutViewController.xib in Resources */,
-				AF569A1815740144003853B7 /* DetailsViewController.xib in Resources */,
 				AF569A4615746B16003853B7 /* SyncViewController.xib in Resources */,
 				AF569A4C1575AE0B003853B7 /* checked.png in Resources */,
 				AF569A4D1575AE0B003853B7 /* unchecked.png in Resources */,
@@ -247,7 +238,6 @@
 				AF8251841573DCC00002C619 /* CategoriesViewController.m in Sources */,
 				AF8251871573DF310002C619 /* CategoriesStore.m in Sources */,
 				AF82518A1573E1460002C619 /* Category.m in Sources */,
-				AF569A1715740144003853B7 /* DetailsViewController.m in Sources */,
 				AF569A3E15741D87003853B7 /* AssetViewController.m in Sources */,
 				AF569A4515746B16003853B7 /* SyncViewController.m in Sources */,
 				AF569A4915746E1F003853B7 /* Asset.m in Sources */,

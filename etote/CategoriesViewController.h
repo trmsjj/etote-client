@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DetailsViewController.h"
 
 @interface CategoriesViewController : UITableViewController
 @end
