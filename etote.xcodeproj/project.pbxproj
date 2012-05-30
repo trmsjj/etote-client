@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28713E4B157668AD0065069C /* etote144.png in Resources */ = {isa = PBXBuildFile; fileRef = 28713E4A157668AD0065069C /* etote144.png */; };
+		28713E4E157668EB0065069C /* etote72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28713E4D157668EB0065069C /* etote72.png */; };
 		AF569A341574151F003853B7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF569A331574151F003853B7 /* QuickLook.framework */; };
 		AF569A3E15741D87003853B7 /* AssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A3D15741D87003853B7 /* AssetViewController.m */; };
 		AF569A4515746B16003853B7 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4315746B16003853B7 /* SyncViewController.m */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28713E4A157668AD0065069C /* etote144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote144.png; sourceTree = "<group>"; };
+		28713E4D157668EB0065069C /* etote72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote72.png; sourceTree = "<group>"; };
 		AF569A2A157406E1003853B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		AF569A3C15741D87003853B7 /* AssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetViewController.h; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		AF8251511573D3E30002C619 = {
 			isa = PBXGroup;
 			children = (
+				28713E4D157668EB0065069C /* etote72.png */,
+				28713E4A157668AD0065069C /* etote144.png */,
 				AF569A4A1575AE0B003853B7 /* checked.png */,
 				AF569A4B1575AE0B003853B7 /* unchecked.png */,
 				AF569A331574151F003853B7 /* QuickLook.framework */,
@@ -222,6 +228,8 @@
 				AF569A4615746B16003853B7 /* SyncViewController.xib in Resources */,
 				AF569A4C1575AE0B003853B7 /* checked.png in Resources */,
 				AF569A4D1575AE0B003853B7 /* unchecked.png in Resources */,
+				28713E4B157668AD0065069C /* etote144.png in Resources */,
+				28713E4E157668EB0065069C /* etote72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
