@@ -11,4 +11,21 @@
 @implementation Category
     @synthesize name;
     @synthesize documents;
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:documents forKey:@"documents"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if(self)
+    {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.documents = [aDecoder decodeObjectForKey:@"documents"];
+    }
+    return self;
+}
 @end

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Document : NSObject {
+@interface Document : NSObject <NSCoding>
+{
     NSString* title;
     NSString* remoteURL;
     NSString* localPath;

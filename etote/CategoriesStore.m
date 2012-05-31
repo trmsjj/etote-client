@@ -15,8 +15,15 @@
 - (id)init
 {
     self = [super init];
-    if(self) {
-        allCategories = [[NSMutableArray alloc] init];
+    if(self) 
+    {
+        NSString *path = [self itemsArchivePath];
+        allCategories = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if(!allCategories)
+        {
+            allCategories = [[NSMutableArray alloc] init];
+        }
+        
     }
     return self;
 }
@@ -66,6 +73,20 @@
             [document setInTote:NO];
         }
     }
+}
+
+-(NSString *)itemsArchivePath
+{
+
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    return [documentDirectory stringByAppendingPathComponent:@"categories.archive"];
+}
+
+-(BOOL)saveChanges
+{
+    NSString *path = [self itemsArchivePath];
+    return [NSKeyedArchiver archiveRootObject:allCategories toFile:path];
 }
 
 @end

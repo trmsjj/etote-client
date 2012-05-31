@@ -16,6 +16,8 @@
 }
 + (CategoriesStore *)sharedStore;
 
+- (NSString *)itemsArchivePath;
+- (BOOL)saveChanges;
 - (NSArray *)allCategories;
 - (Category *)createCategory;
 - (void)emptyTote;
