@@ -1,5 +1,5 @@
 //
-//  AssetViewController.h
+//  DocumentsViewController.h
 //  etote
 //
 //  Created by Ray Tiley on 5/28/12.
@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <QuickLook/QuickLook.h>
 
-@interface AssetViewController : UITableViewController <QLPreviewControllerDataSource>
+@interface DocumentsViewController : UITableViewController <QLPreviewControllerDataSource>
 
 {
-    NSMutableArray* assets;
+    NSMutableArray* documents;
 }
-@property NSMutableArray* assets;
+@property NSMutableArray* documents;
 @end

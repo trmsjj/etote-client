@@ -1,5 +1,5 @@
 //
-//  Asset.h
+//  Docuement.h
 //  etote
 //
 //  Created by Ray Tiley on 5/28/12.
@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Asset : NSObject {
+@interface Document : NSObject {
     NSString* title;
-    NSString* assetRemoteURL;
-    NSString* assetLocalURL;
+    NSString* remoteURL;
+    NSString* localPath;
     BOOL inTote;
-    NSNumber* assetID;
+    NSNumber* documentID;
 }
 @property NSString* title;
-@property NSString* assetRemoteURL;
-@property NSString* assetLocalURL;
+@property NSString* remoteURL;
+@property NSString* localPath;
 @property BOOL inTote;
-@property NSNumber* assetID;
+@property NSNumber* documentID;
 @end

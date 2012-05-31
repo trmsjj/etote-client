@@ -1,17 +1,17 @@
 //
-//  Asset.m
+//  Document.m
 //  etote
 //
 //  Created by Ray Tiley on 5/28/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Asset.h"
+#import "Document.h"
 
-@implementation Asset
+@implementation Document
 @synthesize title;
-@synthesize assetRemoteURL;
-@synthesize assetLocalURL;
+@synthesize remoteURL;
+@synthesize localPath;
 @synthesize inTote;
-@synthesize assetID;
+@synthesize documentID;
 @end

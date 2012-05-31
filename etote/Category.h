@@ -10,8 +10,8 @@
 
 @interface Category : NSObject {
     NSString* name;
-    NSMutableArray* assets;
+    NSMutableArray* documents;
 }
 @property NSString* name;
-@property NSMutableArray* assets;
+@property NSMutableArray* documents;
 @end

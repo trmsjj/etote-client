@@ -1,18 +1,18 @@
 //
-//  AssetViewController.m
+//  DocumentsViewController.m
 //  etote
 //
 //  Created by Ray Tiley on 5/28/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AssetViewController.h"
+#import "DocumentsViewController.h"
 #import "CategoriesStore.h"
 #import "Category.h"
-#import "Asset.h"
+#import "Document.h"
 
-@implementation AssetViewController
-@synthesize assets;
+@implementation DocumentsViewController
+@synthesize documents;
 
 - (id)init
 {
@@ -31,7 +31,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [assets count];
+    return [documents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -44,18 +44,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
-    Asset *asset = [assets objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[asset title]];
+    Document *document = [documents objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[document title]];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(0, 0, 75, 30)];
-    NSString *titleForButton = asset.inTote ? @"Remove" : @"Add";
+    NSString *titleForButton = document.inTote ? @"Remove" : @"Add";
     [button setTitle:titleForButton forState:UIControlStateNormal];
 
     [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
     
     [cell setAccessoryView:button];
-    
     
     return cell;
 }
@@ -74,35 +73,28 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    Asset *asset = [assets objectAtIndex:indexPath.row];
+    Document *document = [documents objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIButton *button = (UIButton *)cell.accessoryView;
-    if([asset inTote] == NO)
+    if([document inTote] == NO)
     {
-        [asset setInTote:YES];
+        [document setInTote:YES];
         [button setTitle:@"Remove" forState:UIControlStateNormal];
     }
     else {
-        [asset setInTote:NO];
+        [document setInTote:NO];
         [button setTitle:@"Add" forState:UIControlStateNormal];
     }
-
-
-    
-
 }
 
 -(id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
 {
-    Asset *asset = [assets objectAtIndex:index];
-
-	return [NSURL fileURLWithPath:[asset assetLocalURL]];
-    
+	return [NSURL fileURLWithPath:[[documents objectAtIndex:index] localPath]];
 }
 
 - (NSInteger) numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
 {
-    return [assets count];
+    return [documents count];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

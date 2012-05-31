@@ -9,7 +9,7 @@
 #import "SyncViewController.h"
 #import "CategoriesStore.h"
 #import "Category.h"
-#import "Asset.h"
+#import "Document.h"
 
 @interface SyncViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *syncActivityIndicator;
@@ -19,7 +19,7 @@
 @implementation SyncViewController
 @synthesize syncActivityIndicator;
 
-- (IBAction)pullAssets:(id)sender {
+- (IBAction)syncButtonSelected:(id)sender {
     [syncActivityIndicator startAnimating];
     
     //TODO - Do all this async so the UI doesn't freeze up
@@ -35,19 +35,18 @@
         Category *newCategory = [categoriesStore createCategory];
         NSDictionary *category = [categoriesFromServer objectAtIndex:i];
         [newCategory setName:[category objectForKey:@"name"]];
-        [newCategory setAssets:[[NSMutableArray  alloc] init]];
-        NSArray *assets = [category objectForKey:@"documents"];
-        for(int j=0; j < [assets count]; j++)
+        [newCategory setDocuments:[[NSMutableArray  alloc] init]];
+        NSArray *documents = [category objectForKey:@"documents"];
+        for(int j=0; j < [documents count]; j++)
         {
-            Asset *asset = [[Asset alloc] init];
-            [asset setTitle:[[assets objectAtIndex:j] objectForKey:@"name"]];
-            [asset setAssetRemoteURL:[[assets objectAtIndex:j] objectForKey:@"url"]];
-            [asset setAssetID:[[assets objectAtIndex:j] objectForKey:@"id"]];
+            Document *document = [[Document alloc] init];
+            [document setTitle:[[documents objectAtIndex:j] objectForKey:@"name"]];
+            [document setRemoteURL:[[documents objectAtIndex:j] objectForKey:@"url"]];
+            [document setDocumentID:[[documents objectAtIndex:j] objectForKey:@"id"]];
 
-            
-            //Download Asset
-            NSURL  *url = [NSURL URLWithString:[asset assetRemoteURL]];
-            NSArray *urlParts = [[asset assetRemoteURL] componentsSeparatedByString:@"/"];
+            //Download Document
+            NSURL  *url = [NSURL URLWithString:[document remoteURL]];
+            NSArray *urlParts = [[document remoteURL] componentsSeparatedByString:@"/"];
             NSString *fileName = [urlParts lastObject];
             NSData *urlData = [NSData dataWithContentsOfURL:url];
             if ( urlData )
@@ -56,11 +55,11 @@
                 NSString  *documentsDirectory = [paths objectAtIndex:0];  
                 
                 NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
-                [asset setAssetLocalURL:filePath];
+                [document setLocalPath:filePath];
                 [urlData writeToFile:filePath atomically:YES];
             }
-            //Add Asset to newCategory
-            [[newCategory assets] addObject:asset];
+            //Add Document to newCategory
+            [[newCategory documents] addObject:document];
         }
         
             
@@ -70,15 +69,11 @@
 }
 
 
-- (IBAction)pushLeads:(id)sender {
-    //[syncActivityIndicator startAnimating];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [self setTitle:@"Sync"];
     }
     return self;
 }

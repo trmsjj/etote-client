@@ -9,7 +9,7 @@
 #import "CategoriesViewController.h"
 #import "Category.h"
 #import "CategoriesStore.h"
-#import "AssetViewController.h"
+#import "DocumentsViewController.h"
 #import "CheckoutViewController.h"
 
 @implementation CategoriesViewController
@@ -36,12 +36,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //This is really ugly
-    AssetViewController *assetView = [[AssetViewController alloc] init];
+    DocumentsViewController *documentsView = [[DocumentsViewController alloc] init];
     CategoriesStore *store = [CategoriesStore sharedStore];
-    NSMutableArray *assets = [[[store allCategories] objectAtIndex:[indexPath row]] assets];
     
-    [assetView setAssets:assets];
-    [[self navigationController] pushViewController:assetView animated:YES];
+    NSMutableArray *documents = [[[store allCategories] objectAtIndex:[indexPath row]] documents];
+    [documentsView setDocuments:documents];
+    
+    [[self navigationController] pushViewController:documentsView animated:YES];
 }
 
 

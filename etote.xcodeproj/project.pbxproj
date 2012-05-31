@@ -10,10 +10,10 @@
 		28713E4B157668AD0065069C /* etote144.png in Resources */ = {isa = PBXBuildFile; fileRef = 28713E4A157668AD0065069C /* etote144.png */; };
 		28713E4E157668EB0065069C /* etote72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28713E4D157668EB0065069C /* etote72.png */; };
 		AF569A341574151F003853B7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF569A331574151F003853B7 /* QuickLook.framework */; };
-		AF569A3E15741D87003853B7 /* AssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A3D15741D87003853B7 /* AssetViewController.m */; };
+		AF569A3E15741D87003853B7 /* DocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A3D15741D87003853B7 /* DocumentsViewController.m */; };
 		AF569A4515746B16003853B7 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4315746B16003853B7 /* SyncViewController.m */; };
 		AF569A4615746B16003853B7 /* SyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF569A4415746B16003853B7 /* SyncViewController.xib */; };
-		AF569A4915746E1F003853B7 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4815746E1F003853B7 /* Asset.m */; };
+		AF569A4915746E1F003853B7 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4815746E1F003853B7 /* Document.m */; };
 		AF569A5615771195003853B7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A5415771195003853B7 /* HomeViewController.m */; };
 		AF569A5715771195003853B7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF569A5515771195003853B7 /* HomeViewController.xib */; };
 		AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251601573D3E40002C619 /* UIKit.framework */; };
@@ -34,13 +34,13 @@
 		28713E4D157668EB0065069C /* etote72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote72.png; sourceTree = "<group>"; };
 		AF569A2A157406E1003853B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		AF569A3C15741D87003853B7 /* AssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetViewController.h; sourceTree = "<group>"; };
-		AF569A3D15741D87003853B7 /* AssetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetViewController.m; sourceTree = "<group>"; };
+		AF569A3C15741D87003853B7 /* DocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DocumentsViewController.h; sourceTree = "<group>"; };
+		AF569A3D15741D87003853B7 /* DocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsViewController.m; sourceTree = "<group>"; };
 		AF569A4215746B16003853B7 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
 		AF569A4315746B16003853B7 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		AF569A4415746B16003853B7 /* SyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncViewController.xib; sourceTree = "<group>"; };
-		AF569A4715746E1F003853B7 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
-		AF569A4815746E1F003853B7 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
+		AF569A4715746E1F003853B7 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Document.h; sourceTree = "<group>"; };
+		AF569A4815746E1F003853B7 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		AF569A5315771195003853B7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		AF569A5415771195003853B7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		AF569A5515771195003853B7 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 		AF569A3F15746A7A003853B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AF569A4715746E1F003853B7 /* Asset.h */,
-				AF569A4815746E1F003853B7 /* Asset.m */,
+				AF569A4715746E1F003853B7 /* Document.h */,
+				AF569A4815746E1F003853B7 /* Document.m */,
 				AF8251851573DF310002C619 /* CategoriesStore.h */,
 				AF8251861573DF310002C619 /* CategoriesStore.m */,
 				AF8251881573E1460002C619 /* Category.h */,
@@ -101,8 +101,8 @@
 				AF569A5515771195003853B7 /* HomeViewController.xib */,
 				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
 				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
-				AF569A3C15741D87003853B7 /* AssetViewController.h */,
-				AF569A3D15741D87003853B7 /* AssetViewController.m */,
+				AF569A3C15741D87003853B7 /* DocumentsViewController.h */,
+				AF569A3D15741D87003853B7 /* DocumentsViewController.m */,
 				AF82517D1573D77C0002C619 /* CheckoutViewController.h */,
 				AF82517E1573D77C0002C619 /* CheckoutViewController.m */,
 				AF82517F1573D77C0002C619 /* CheckoutViewController.xib */,
@@ -247,9 +247,9 @@
 				AF8251841573DCC00002C619 /* CategoriesViewController.m in Sources */,
 				AF8251871573DF310002C619 /* CategoriesStore.m in Sources */,
 				AF82518A1573E1460002C619 /* Category.m in Sources */,
-				AF569A3E15741D87003853B7 /* AssetViewController.m in Sources */,
+				AF569A3E15741D87003853B7 /* DocumentsViewController.m in Sources */,
 				AF569A4515746B16003853B7 /* SyncViewController.m in Sources */,
-				AF569A4915746E1F003853B7 /* Asset.m in Sources */,
+				AF569A4915746E1F003853B7 /* Document.m in Sources */,
 				AF569A5615771195003853B7 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
