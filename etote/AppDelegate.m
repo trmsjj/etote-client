@@ -7,12 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CheckoutViewController.h"
-#import "CategoriesViewController.h"
-#import "SyncViewController.h"
-#import "Category.h"
-#import "CategoriesStore.h"
-#import "Asset.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
@@ -20,77 +15,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //Setup Categories and Assets
-    //Eventually this will be moved to the sync operation
-    /*
-    Category *carousel = [[CategoriesStore sharedStore] createCategory];
-    carousel.name = @"Carousel";
-    [carousel setAssets:[[NSMutableArray alloc] init]];
-    
-    Asset *carOverview = [[Asset alloc] init];
-    [carOverview setTitle:@"Carousel Overview"];
-    [carOverview setAssetRemoteURL:
-     @"http://www.trms.com/assets/104/CarouselJAN2012.pdf"];
-    [[carousel assets] addObject:carOverview];
-    
-    Asset *carProServer = [[Asset alloc] init];
-    [carProServer setTitle:@"Carousel Pro Server"];
-    [carProServer setAssetRemoteURL:
-     @"http://www.trms.com/assets/142/CarouselProServer410.pdf"];
-    [[carousel assets] addObject:carProServer];
-    
-    Category *cablecast = [[CategoriesStore sharedStore] createCategory];
-    cablecast.name = @"Cablecast";
-    [cablecast setAssets:[[NSMutableArray alloc] init]];
-    
-    Asset *cabOverview = [[Asset alloc] init];
-    [cabOverview setTitle:@"Cablecast Overview"];
-    [cabOverview setAssetRemoteURL:
-     @"http://www.trms.com/assets/154/CablecastJAN262012.pdf"];
-    [[cablecast assets] addObject:cabOverview];
-    
-    Asset *cabSX2HD = [[Asset alloc] init];
-    [cabSX2HD setTitle:@"Cablecast SX2HD"];
-    [cabSX2HD setAssetRemoteURL:
-     @"http://www.trms.com/assets/192/CablecastSX2HD.pdf"];
-    [[cablecast assets] addObject:cabSX2HD];
-
-    
-    Category *zeplay = [[CategoriesStore sharedStore] createCategory];
-    zeplay.name = @"ZEPLAY";
-    [zeplay setAssets:[[NSMutableArray alloc] init]];
-    
-    Asset *zeplayOverview = [[Asset alloc] init];
-    [zeplayOverview setTitle:@"ZEPLAY Overview"];
-    [zeplayOverview setAssetRemoteURL:
-     @"http://www.trms.com/assets/136/ZEPLAYJan2012.pdf"];
-    [[zeplay assets] addObject:zeplayOverview];
-
-    //End CategoriesStore Setup
-    */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    CheckoutViewController *checkoutViewController = [[CheckoutViewController alloc] init];
-    CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc] init];
-    SyncViewController *syncViewController = [[SyncViewController alloc] init];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
+    HomeViewController *homeViewController = [[HomeViewController alloc] init];
     
-    [[navController tabBarItem] setTitle:@"Categories"];
-    [[syncViewController tabBarItem] setTitle:@"Sync"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-
-    NSArray *viewControllers = [NSArray arrayWithObjects:
-                                navController,
-                                checkoutViewController,
-                                syncViewController, 
-                                nil];
-    
-    [tabBarController setViewControllers:viewControllers];
-    
-    // Override point for customization after application launch.
-
-    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }

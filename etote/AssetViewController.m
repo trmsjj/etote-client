@@ -47,15 +47,14 @@
     Asset *asset = [assets objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[asset title]];
     
-    UIImage *image = ([asset inTote]) ? [UIImage   imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
-    button.frame = frame;
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(0, 0, 75, 30)];
+    NSString *titleForButton = asset.inTote ? @"Remove" : @"Add";
+    [button setTitle:titleForButton forState:UIControlStateNormal];
+
     [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor clearColor];
-    cell.accessoryView = button;
+    
+    [cell setAccessoryView:button];
     
     
     return cell;
@@ -76,19 +75,21 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     Asset *asset = [assets objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIButton *button = (UIButton *)cell.accessoryView;
     if([asset inTote] == NO)
     {
         [asset setInTote:YES];
+        [button setTitle:@"Remove" forState:UIControlStateNormal];
     }
     else {
         [asset setInTote:NO];
+        [button setTitle:@"Add" forState:UIControlStateNormal];
     }
 
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UIButton *button = (UIButton *)cell.accessoryView;
+
     
-    UIImage *newImage = ([asset inTote]) ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
-    [button setBackgroundImage:newImage forState:UIControlStateNormal];
+
 }
 
 -(id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index

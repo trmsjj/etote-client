@@ -10,13 +10,27 @@
 #import "Category.h"
 #import "CategoriesStore.h"
 #import "AssetViewController.h"
+#import "CheckoutViewController.h"
 
 @implementation CategoriesViewController
 
 - (id)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
+    if(self) {
+        [self setTitle:@"Categories"];
+        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
+                                                                           style:UIBarButtonItemStylePlain
+                                                                          target:self
+                                                                          action:@selector(checkoutButtonSelected:)];
+        self.navigationItem.rightBarButtonItem = settingsButton;
+    }
     return self;
+}
+
+- (void)checkoutButtonSelected:(id)sender {
+    CheckoutViewController *checkoutViewController = [[CheckoutViewController alloc] init];
+    [[self navigationController] pushViewController:checkoutViewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
