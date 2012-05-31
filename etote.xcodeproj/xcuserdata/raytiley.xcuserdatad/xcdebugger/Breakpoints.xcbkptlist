@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "etote/SyncViewController.m"
-         timestampString = "360191981.598924"
+         timestampString = "360193175.191181"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
+         startingLineNumber = "89"
+         endingLineNumber = "89"
          landmarkName = "-pullAssets:"
          landmarkType = "5">
       </FileBreakpoint>

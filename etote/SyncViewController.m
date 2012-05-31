@@ -41,6 +41,7 @@
         NSArray *categoriesFromServer = [jsonResponse objectForKey:@"categories"];
         
         CategoriesStore *categoriesStore = [CategoriesStore sharedStore];
+        [categoriesStore clearStore];
         for(int i=0; i < [categoriesFromServer count]; i++)
         {
             Category *newCategory = [categoriesStore createCategory];

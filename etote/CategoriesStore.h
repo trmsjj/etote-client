@@ -18,4 +18,6 @@
 
 - (NSArray *)allCategories;
 - (Category *)createCategory;
+- (void)emptyTote;
+- (void)clearStore;
 @end

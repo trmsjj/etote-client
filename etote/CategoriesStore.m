@@ -8,6 +8,7 @@
 
 #import "CategoriesStore.h"
 #import "Category.h"
+#import "Document.h"
 
 @implementation CategoriesStore
 
@@ -47,4 +48,24 @@
 {
     return [self sharedStore];
 }
+
+- (void)clearStore
+{
+    allCategories = nil;
+    allCategories = [[NSMutableArray alloc] init];
+}
+
+-(void)emptyTote
+{
+    for(int i=0; i < [allCategories count]; i++)
+    {
+        Category *category = [allCategories objectAtIndex:i];
+        for(int j=0; j < [[category documents] count]; j++)
+        {
+            Document *document = [[category documents] objectAtIndex:j];
+            [document setInTote:NO];
+        }
+    }
+}
+
 @end
