@@ -16,6 +16,8 @@
 		AF569A4915746E1F003853B7 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4815746E1F003853B7 /* Document.m */; };
 		AF569A5615771195003853B7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A5415771195003853B7 /* HomeViewController.m */; };
 		AF569A5715771195003853B7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF569A5515771195003853B7 /* HomeViewController.xib */; };
+		AF569A5F157860B8003853B7 /* Tote.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A5E157860B8003853B7 /* Tote.m */; };
+		AF569A621578642B003853B7 /* ToteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A611578642A003853B7 /* ToteStore.m */; };
 		AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251601573D3E40002C619 /* UIKit.framework */; };
 		AF8251631573D3E40002C619 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251621573D3E40002C619 /* Foundation.framework */; };
 		AF8251651573D3E40002C619 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251641573D3E40002C619 /* CoreGraphics.framework */; };
@@ -32,18 +34,21 @@
 /* Begin PBXFileReference section */
 		28713E4A157668AD0065069C /* etote144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote144.png; sourceTree = "<group>"; };
 		28713E4D157668EB0065069C /* etote72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote72.png; sourceTree = "<group>"; };
-		AF569A2A157406E1003853B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		AF569A3C15741D87003853B7 /* DocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DocumentsViewController.h; sourceTree = "<group>"; };
+		AF569A3C15741D87003853B7 /* DocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsViewController.h; sourceTree = "<group>"; };
 		AF569A3D15741D87003853B7 /* DocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsViewController.m; sourceTree = "<group>"; };
 		AF569A4215746B16003853B7 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
 		AF569A4315746B16003853B7 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		AF569A4415746B16003853B7 /* SyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncViewController.xib; sourceTree = "<group>"; };
-		AF569A4715746E1F003853B7 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Document.h; sourceTree = "<group>"; };
+		AF569A4715746E1F003853B7 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		AF569A4815746E1F003853B7 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		AF569A5315771195003853B7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		AF569A5415771195003853B7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		AF569A5515771195003853B7 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		AF569A5D157860B8003853B7 /* Tote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tote.h; sourceTree = "<group>"; };
+		AF569A5E157860B8003853B7 /* Tote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tote.m; sourceTree = "<group>"; };
+		AF569A601578642A003853B7 /* ToteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToteStore.h; sourceTree = "<group>"; };
+		AF569A611578642A003853B7 /* ToteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToteStore.m; sourceTree = "<group>"; };
 		AF82515C1573D3E40002C619 /* etote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8251601573D3E40002C619 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF8251621573D3E40002C619 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +94,10 @@
 				AF8251861573DF310002C619 /* CategoriesStore.m */,
 				AF8251881573E1460002C619 /* Category.h */,
 				AF8251891573E1460002C619 /* Category.m */,
+				AF569A5D157860B8003853B7 /* Tote.h */,
+				AF569A5E157860B8003853B7 /* Tote.m */,
+				AF569A601578642A003853B7 /* ToteStore.h */,
+				AF569A611578642A003853B7 /* ToteStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -125,7 +134,6 @@
 			children = (
 				28713E4D157668EB0065069C /* etote72.png */,
 				28713E4A157668AD0065069C /* etote144.png */,
-				AF569A331574151F003853B7 /* QuickLook.framework */,
 				AF8251661573D3E40002C619 /* etote */,
 				AF82515F1573D3E40002C619 /* Frameworks */,
 				AF82515D1573D3E40002C619 /* Products */,
@@ -143,7 +151,7 @@
 		AF82515F1573D3E40002C619 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF569A2A157406E1003853B7 /* QuartzCore.framework */,
+				AF569A331574151F003853B7 /* QuickLook.framework */,
 				AF8251601573D3E40002C619 /* UIKit.framework */,
 				AF8251621573D3E40002C619 /* Foundation.framework */,
 				AF8251641573D3E40002C619 /* CoreGraphics.framework */,
@@ -251,6 +259,8 @@
 				AF569A4515746B16003853B7 /* SyncViewController.m in Sources */,
 				AF569A4915746E1F003853B7 /* Document.m in Sources */,
 				AF569A5615771195003853B7 /* HomeViewController.m in Sources */,
+				AF569A5F157860B8003853B7 /* Tote.m in Sources */,
+				AF569A621578642B003853B7 /* ToteStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

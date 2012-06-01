@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SyncViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *toteStatusLabel;
 
 @end

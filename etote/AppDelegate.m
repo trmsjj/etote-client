@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "CategoriesStore.h"
+#import "ToteStore.h"
 
 @implementation AppDelegate
 
@@ -39,6 +40,11 @@
     if(!success)
     {
         NSLog(@"Error archiving categories");
+    }
+    success = [[ToteStore sharedStore] saveChanges];
+    if(!success)
+    {
+        NSLog(@"Error archiving totes");
     }
 }
 

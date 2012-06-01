@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CheckoutViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 
 @end

@@ -10,6 +10,8 @@
 #import "CategoriesStore.h"
 #import "Category.h"
 #import "Document.h"
+#import "ToteStore.h"
+#import "Tote.h"
 
 @interface SyncViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *syncActivityIndicator;
@@ -19,6 +21,7 @@
 @end
 
 @implementation SyncViewController
+@synthesize toteStatusLabel;
 @synthesize syncActivityIndicator;
 @synthesize statusLabel;
 @synthesize syncProgressBar;
@@ -26,8 +29,51 @@
 - (IBAction)syncButtonSelected:(id)sender {
     [syncActivityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        
         dispatch_sync(dispatch_get_main_queue(), ^{
-            NSLog(@"About to update label");
+            [statusLabel setText:@"Syncing totes"];
+            [syncProgressBar setProgress:0 animated:NO];
+            [syncProgressBar setHidden:NO];
+            
+        });
+        
+        //PUSH Totes UP
+        NSArray *totes = [[ToteStore sharedStore] allTotes];
+        NSURL *postURL = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/requests"];
+        for(int i=0; i< [totes count]; i++)
+        {
+            Tote *tote = [totes objectAtIndex:i];
+            if(!tote.synced)
+            {
+                
+                NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSDictionary dictionaryWithObjectsAndKeys:
+                                             tote.name,@"name",
+                                             tote.email,@"email",
+                                             tote.documentIDs, @"documents",
+                                             nil], @"request",
+                                        nil];
+                
+                NSData *jsonRequest = [NSJSONSerialization dataWithJSONObject:request options:NSJSONWritingPrettyPrinted error:nil];
+                NSString *test = [[NSString alloc] initWithData:jsonRequest encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", test);
+                NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:postURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
+                [req setHTTPBody:jsonRequest];
+                [req setHTTPMethod:@"POST"];
+                [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+                [req setValue:[NSString stringWithFormat:@"%d", [jsonRequest length]] forHTTPHeaderField:@"Content-Length"];
+                NSURLResponse *response = nil;
+                NSError *error = nil;
+               
+                NSData *result = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
+                
+                tote.synced = YES;
+            }
+        }
+        //PULL Documents Down
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [toteStatusLabel setText:@""];
             [statusLabel setText:@"Connecting To Server"];
             [syncProgressBar setProgress:0 animated:NO];
             [syncProgressBar setHidden:NO];
@@ -102,12 +148,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [toteStatusLabel setText:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [syncProgressBar setHidden:YES];
     [statusLabel setText:@""];
+    if([[ToteStore sharedStore] unsyncedToteCount] > 0)
+    {
+        NSString *toteCountString = [NSString stringWithFormat:@"There are %u unsynced totes.", [[ToteStore sharedStore] unsyncedToteCount]];
+        [toteStatusLabel setText:toteCountString];
+    }
 }
 
 - (void)viewDidUnload
@@ -115,6 +167,7 @@
     [self setSyncActivityIndicator:nil];
     [self setStatusLabel:nil];
     [self setSyncProgressBar:nil];
+    [self setToteStatusLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
