@@ -34,10 +34,23 @@
 }
 
 - (void)settingsButtonSelected:(id)sender {
-     SyncViewController *syncViewController = [[SyncViewController alloc] init];
-     [[self navigationController] pushViewController:syncViewController animated:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert setAlertViewStyle:UIAlertViewStyleSecureTextInput];
+    [alert show];
+    
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Entered: %@ - Clicked %u",[[alertView textFieldAtIndex:0] text], buttonIndex);
+    NSString *submitted = [[alertView textFieldAtIndex:0] text];
+    if(buttonIndex == 1 && [submitted isEqualToString:@"trms"])
+    {
+        NSLog(@"Load sync view controller");
+        SyncViewController *syncViewController = [[SyncViewController alloc] init];
+        [[self navigationController] pushViewController:syncViewController animated:YES];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

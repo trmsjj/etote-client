@@ -112,7 +112,7 @@
                 if ( urlData )
                 {
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        [statusLabel setText:[NSString stringWithFormat:@"%@ %@", @"Downloading", fileName]];
+                        [statusLabel setText:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
                         NSLog(@"Progress: %f", ((float)j / (float)[documents count]));
                         [syncProgressBar setProgress:((float)(j + 1) / (float)[documents count]) animated:YES];
                     });
