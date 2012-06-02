@@ -44,6 +44,12 @@
     }
     
     [[CategoriesStore sharedStore] emptyTote];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:NO];
+}
+
+- (void)timerFired:(NSTimer *)theTimer
+{
+    [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
