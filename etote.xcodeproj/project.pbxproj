@@ -33,6 +33,8 @@
 		AF8251841573DCC00002C619 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251831573DCC00002C619 /* CategoriesViewController.m */; };
 		AF8251871573DF310002C619 /* CategoriesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251861573DF310002C619 /* CategoriesStore.m */; };
 		AF82518A1573E1460002C619 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251891573E1460002C619 /* Category.m */; };
+		AFF29D75157A940E005BB79F /* SplashPageGraphic@2X~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */; };
+		AFF29D76157A940E005BB79F /* SplashPageGraphic~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		AF8251861573DF310002C619 /* CategoriesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesStore.m; sourceTree = "<group>"; };
 		AF8251881573E1460002C619 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		AF8251891573E1460002C619 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SplashPageGraphic@2X~iphone.png"; path = "etote/SplashPageGraphic@2X~iphone.png"; sourceTree = "<group>"; };
+		AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SplashPageGraphic~iphone.png"; path = "etote/SplashPageGraphic~iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +121,9 @@
 			children = (
 				AF569A5315771195003853B7 /* HomeViewController.h */,
 				AF569A5415771195003853B7 /* HomeViewController.m */,
+				AF569A5515771195003853B7 /* HomeViewController.xib */,
 				AF1F51501579AE5D007B5025 /* OBGradientView.h */,
 				AF1F51511579AE5D007B5025 /* OBGradientView.m */,
-				AF569A5515771195003853B7 /* HomeViewController.xib */,
 				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
 				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
 				AF569A3C15741D87003853B7 /* DocumentsViewController.h */,
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */,
+				AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */,
+				AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */,
 				AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */,
 				AF1F514A1579878C007B5025 /* QuartzCore.framework */,
 				28713E4D157668EB0065069C /* etote72.png */,
@@ -256,6 +262,8 @@
 				AF569A5715771195003853B7 /* HomeViewController.xib in Resources */,
 				AF1F514E15798ACF007B5025 /* SplashPageGraphic.png in Resources */,
 				AF1F514F15798ACF007B5025 /* SplashPageGraphic@2X.png in Resources */,
+				AFF29D75157A940E005BB79F /* SplashPageGraphic@2X~iphone.png in Resources */,
+				AFF29D76157A940E005BB79F /* SplashPageGraphic~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +359,7 @@
 				INFOPLIST_FILE = "etote/etote-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -363,6 +372,7 @@
 				INFOPLIST_FILE = "etote/etote-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

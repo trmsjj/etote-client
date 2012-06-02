@@ -13,6 +13,7 @@
 
 @implementation HomeViewController
 @synthesize gradientView;
+@synthesize welcomeTextLabel;
 - (void)getStarted:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc] init];
@@ -54,6 +55,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Knock down font for iPhone
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        [welcomeTextLabel setFont:[UIFont systemFontOfSize:12.0]];
+    }
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [[self gradientView] setColors:colors];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getStarted:)];
@@ -63,6 +69,7 @@
 - (void)viewDidUnload
 {
     [self setGradientView:nil];
+    [self setWelcomeTextLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

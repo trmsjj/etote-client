@@ -12,4 +12,5 @@
 @interface HomeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
 
+@property (weak, nonatomic) IBOutlet UILabel *welcomeTextLabel;
 @end
