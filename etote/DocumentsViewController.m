@@ -5,11 +5,12 @@
 //  Created by Ray Tiley on 5/28/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
 #import "DocumentsViewController.h"
 #import "CategoriesStore.h"
 #import "Category.h"
 #import "Document.h"
+#import "OBGradientView.h"
 
 @implementation DocumentsViewController
 @synthesize documents;
@@ -18,6 +19,15 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    OBGradientView *backgroundView = [[OBGradientView alloc] init];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    [backgroundView setColors:colors];
+    [[self tableView] setBackgroundView:backgroundView];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

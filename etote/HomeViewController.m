@@ -9,8 +9,10 @@
 #import "HomeViewController.h"
 #import "CategoriesViewController.h"
 #import "SyncViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation HomeViewController
+@synthesize gradientView;
 - (IBAction)getStartedButtonTapped:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc] init];
@@ -39,11 +41,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    [[self gradientView] setColors:colors];
 }
 
 - (void)viewDidUnload
 {
+    [self setGradientView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -53,5 +57,6 @@
 {
 	return YES;
 }
+
 
 @end

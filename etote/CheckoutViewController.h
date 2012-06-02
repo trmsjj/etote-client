@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OBGradientView.h"
 
 @interface CheckoutViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
 
 @end

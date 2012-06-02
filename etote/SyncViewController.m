@@ -22,6 +22,7 @@
 
 @implementation SyncViewController
 @synthesize toteStatusLabel;
+@synthesize gradientView;
 @synthesize syncActivityIndicator;
 @synthesize statusLabel;
 @synthesize syncProgressBar;
@@ -149,6 +150,8 @@
 {
     [super viewDidLoad];
     [toteStatusLabel setText:@""];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    [[self gradientView] setColors:colors];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -168,6 +171,7 @@
     [self setStatusLabel:nil];
     [self setSyncProgressBar:nil];
     [self setToteStatusLabel:nil];
+    [self setGradientView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -5,7 +5,7 @@
 //  Created by Ray Tiley on 5/28/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
 #import "CheckoutViewController.h"
 #import "CategoriesStore.h"
 #import "Category.h"
@@ -16,6 +16,7 @@
 @implementation CheckoutViewController
 @synthesize nameField;
 @synthesize emailField;
+@synthesize gradientView;
 
 - (IBAction)saveButtonSelected:(id)sender {
     [[self emailField] resignFirstResponder];
@@ -59,7 +60,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    [[self gradientView] setColors:colors];
 }
 
 - (void)viewDidUnload
@@ -67,6 +69,7 @@
     [self setNameField:nil];
     [self setNameField:nil];
     [self setEmailField:nil];
+    [self setGradientView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

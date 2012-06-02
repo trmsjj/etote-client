@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		28713E4B157668AD0065069C /* etote144.png in Resources */ = {isa = PBXBuildFile; fileRef = 28713E4A157668AD0065069C /* etote144.png */; };
 		28713E4E157668EB0065069C /* etote72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28713E4D157668EB0065069C /* etote72.png */; };
+		AF1F514B1579878C007B5025 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1F514A1579878C007B5025 /* QuartzCore.framework */; };
+		AF1F514E15798ACF007B5025 /* SplashPageGraphic.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */; };
+		AF1F514F15798ACF007B5025 /* SplashPageGraphic@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */; };
+		AF1F51521579AE5D007B5025 /* OBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F51511579AE5D007B5025 /* OBGradientView.m */; };
 		AF569A341574151F003853B7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF569A331574151F003853B7 /* QuickLook.framework */; };
 		AF569A3E15741D87003853B7 /* DocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A3D15741D87003853B7 /* DocumentsViewController.m */; };
 		AF569A4515746B16003853B7 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A4315746B16003853B7 /* SyncViewController.m */; };
@@ -34,6 +38,11 @@
 /* Begin PBXFileReference section */
 		28713E4A157668AD0065069C /* etote144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote144.png; sourceTree = "<group>"; };
 		28713E4D157668EB0065069C /* etote72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etote72.png; sourceTree = "<group>"; };
+		AF1F514A1579878C007B5025 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashPageGraphic.png; sourceTree = "<group>"; };
+		AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashPageGraphic@2X.png"; sourceTree = "<group>"; };
+		AF1F51501579AE5D007B5025 /* OBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBGradientView.h; sourceTree = "<group>"; };
+		AF1F51511579AE5D007B5025 /* OBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBGradientView.m; sourceTree = "<group>"; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		AF569A3C15741D87003853B7 /* DocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsViewController.h; sourceTree = "<group>"; };
 		AF569A3D15741D87003853B7 /* DocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsViewController.m; sourceTree = "<group>"; };
@@ -75,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF1F514B1579878C007B5025 /* QuartzCore.framework in Frameworks */,
 				AF569A341574151F003853B7 /* QuickLook.framework in Frameworks */,
 				AF8251651573D3E40002C619 /* CoreGraphics.framework in Frameworks */,
 				AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */,
@@ -107,6 +117,8 @@
 			children = (
 				AF569A5315771195003853B7 /* HomeViewController.h */,
 				AF569A5415771195003853B7 /* HomeViewController.m */,
+				AF1F51501579AE5D007B5025 /* OBGradientView.h */,
+				AF1F51511579AE5D007B5025 /* OBGradientView.m */,
 				AF569A5515771195003853B7 /* HomeViewController.xib */,
 				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
 				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
@@ -132,6 +144,9 @@
 		AF8251511573D3E30002C619 = {
 			isa = PBXGroup;
 			children = (
+				AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */,
+				AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */,
+				AF1F514A1579878C007B5025 /* QuartzCore.framework */,
 				28713E4D157668EB0065069C /* etote72.png */,
 				28713E4A157668AD0065069C /* etote144.png */,
 				AF8251661573D3E40002C619 /* etote */,
@@ -239,6 +254,8 @@
 				28713E4B157668AD0065069C /* etote144.png in Resources */,
 				28713E4E157668EB0065069C /* etote72.png in Resources */,
 				AF569A5715771195003853B7 /* HomeViewController.xib in Resources */,
+				AF1F514E15798ACF007B5025 /* SplashPageGraphic.png in Resources */,
+				AF1F514F15798ACF007B5025 /* SplashPageGraphic@2X.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +278,7 @@
 				AF569A5615771195003853B7 /* HomeViewController.m in Sources */,
 				AF569A5F157860B8003853B7 /* Tote.m in Sources */,
 				AF569A621578642B003853B7 /* ToteStore.m in Sources */,
+				AF1F51521579AE5D007B5025 /* OBGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

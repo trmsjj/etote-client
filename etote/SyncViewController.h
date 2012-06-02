@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OBGradientView.h"
 
 @interface SyncViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *toteStatusLabel;
+@property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
 
 @end

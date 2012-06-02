@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OBGradientView.h"
 
 @interface HomeViewController : UIViewController
+@property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
 
 @end

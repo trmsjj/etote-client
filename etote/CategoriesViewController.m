@@ -6,11 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "CategoriesViewController.h"
 #import "Category.h"
 #import "CategoriesStore.h"
 #import "DocumentsViewController.h"
 #import "CheckoutViewController.h"
+#import "OBGradientView.h"
 
 @implementation CategoriesViewController
 
@@ -26,6 +28,14 @@
         self.navigationItem.rightBarButtonItem = settingsButton;
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    OBGradientView *backgroundView = [[OBGradientView alloc] init];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    [backgroundView setColors:colors];
+    [[self tableView] setBackgroundView:backgroundView];
 }
 
 - (void)checkoutButtonSelected:(id)sender {
