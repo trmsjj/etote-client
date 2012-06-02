@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
 
+@property (weak, nonatomic) IBOutlet UILabel *thankyouLabel;
 @end

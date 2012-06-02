@@ -41,7 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [[self gradientView] setColors:colors];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getStarted:)];
     [self.view addGestureRecognizer:tapGesture];

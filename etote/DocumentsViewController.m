@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     OBGradientView *backgroundView = [[OBGradientView alloc] init];
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [backgroundView setColors:colors];
     [[self tableView] setBackgroundView:backgroundView];
 }

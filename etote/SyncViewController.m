@@ -150,7 +150,7 @@
 {
     [super viewDidLoad];
     [toteStatusLabel setText:@""];
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [[self gradientView] setColors:colors];
 }
 

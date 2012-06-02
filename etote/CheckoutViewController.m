@@ -17,6 +17,7 @@
 @synthesize nameField;
 @synthesize emailField;
 @synthesize gradientView;
+@synthesize thankyouLabel;
 
 - (IBAction)saveButtonSelected:(id)sender {
     [[self emailField] resignFirstResponder];
@@ -42,7 +43,7 @@
             }
         }
     }
-    
+    [thankyouLabel setHidden:NO];
     [[CategoriesStore sharedStore] emptyTote];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:NO];
 }
@@ -66,7 +67,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
+    [thankyouLabel setHidden:YES];
+    NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [[self gradientView] setColors:colors];
 }
 
@@ -76,6 +78,7 @@
     [self setNameField:nil];
     [self setEmailField:nil];
     [self setGradientView:nil];
+    [self setThankyouLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
