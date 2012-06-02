@@ -16,6 +16,8 @@
 			<array>
 				<string>etote144.png</string>
 				<string>etote72.png</string>
+				<string>etote57.png</string>
+				<string>etote114.png</string>
 			</array>
 		</dict>
 	</dict>
@@ -32,7 +34,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.5</string>
+	<string>1.0.8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
