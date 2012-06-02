@@ -13,7 +13,7 @@
 
 @implementation HomeViewController
 @synthesize gradientView;
-- (IBAction)getStartedButtonTapped:(id)sender {
+- (void)getStarted:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc] init];
     [[self navigationController] pushViewController:categoriesViewController animated:YES];
@@ -43,6 +43,8 @@
     [super viewDidLoad];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor grayColor], [UIColor darkGrayColor], nil];
     [[self gradientView] setColors:colors];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getStarted:)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)viewDidUnload
