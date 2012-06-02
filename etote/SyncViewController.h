@@ -12,5 +12,5 @@
 @interface SyncViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *toteStatusLabel;
 @property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
-
+- (BOOL) pingServer;
 @end

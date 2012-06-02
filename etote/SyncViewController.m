@@ -28,112 +28,117 @@
 @synthesize syncProgressBar;
 
 - (IBAction)syncButtonSelected:(id)sender {
-    [syncActivityIndicator startAnimating];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [statusLabel setText:@"Syncing totes"];
-            [syncProgressBar setProgress:0 animated:NO];
-            [syncProgressBar setHidden:NO];
+    if([self pingServer])
+    {
+        [syncActivityIndicator startAnimating];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             
-        });
-        
-        //PUSH Totes UP
-        NSArray *totes = [[ToteStore sharedStore] allTotes];
-        NSURL *postURL = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/requests"];
-        for(int i=0; i< [totes count]; i++)
-        {
-            Tote *tote = [totes objectAtIndex:i];
-            if(!tote.synced)
-            {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [statusLabel setText:@"Syncing totes"];
+                [syncProgressBar setProgress:0 animated:NO];
+                [syncProgressBar setHidden:NO];
                 
-                NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSDictionary dictionaryWithObjectsAndKeys:
-                                             tote.name,@"name",
-                                             tote.email,@"email",
-                                             tote.documentIDs, @"documents",
-                                             nil], @"request",
-                                        nil];
-                
-                NSData *jsonRequest = [NSJSONSerialization dataWithJSONObject:request options:NSJSONWritingPrettyPrinted error:nil];
-                NSString *test = [[NSString alloc] initWithData:jsonRequest encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", test);
-                NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:postURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
-                [req setHTTPBody:jsonRequest];
-                [req setHTTPMethod:@"POST"];
-                [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-                [req setValue:[NSString stringWithFormat:@"%d", [jsonRequest length]] forHTTPHeaderField:@"Content-Length"];
-                NSURLResponse *response = nil;
-                NSError *error = nil;
-               
-                NSData *result = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
-                
-                tote.synced = YES;
-            }
-        }
-        //PULL Documents Down
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [toteStatusLabel setText:@""];
-            [statusLabel setText:@"Connecting To Server"];
-            [syncProgressBar setProgress:0 animated:NO];
-            [syncProgressBar setHidden:NO];
+            });
             
-        });
-
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/categories"]];
-        
-        NSDictionary* jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        
-        NSArray *categoriesFromServer = [jsonResponse objectForKey:@"categories"];
-        
-        CategoriesStore *categoriesStore = [CategoriesStore sharedStore];
-        [categoriesStore clearStore];
-        for(int i=0; i < [categoriesFromServer count]; i++)
-        {
-            Category *newCategory = [categoriesStore createCategory];
-            NSDictionary *category = [categoriesFromServer objectAtIndex:i];
-            [newCategory setName:[category objectForKey:@"name"]];
-            [newCategory setDocuments:[[NSMutableArray  alloc] init]];
-            NSArray *documents = [category objectForKey:@"documents"];
-            for(int j=0; j < [documents count]; j++)
+            //PUSH Totes UP
+            NSArray *totes = [[ToteStore sharedStore] allTotes];
+            NSURL *postURL = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/requests"];
+            for(int i=0; i< [totes count]; i++)
             {
-                Document *document = [[Document alloc] init];
-                [document setTitle:[[documents objectAtIndex:j] objectForKey:@"name"]];
-                [document setRemoteURL:[[documents objectAtIndex:j] objectForKey:@"url"]];
-                [document setDocumentID:[[documents objectAtIndex:j] objectForKey:@"id"]];
-                
-                //Download Document
-                NSURL  *url = [NSURL URLWithString:[document remoteURL]];
-
-                NSArray *urlParts = [[document remoteURL] componentsSeparatedByString:@"/"];
-                NSString *fileName = [urlParts lastObject];
-                NSData *urlData = [NSData dataWithContentsOfURL:url];
-                if ( urlData )
+                Tote *tote = [totes objectAtIndex:i];
+                if(!tote.synced)
                 {
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        [statusLabel setText:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
-                        NSLog(@"Progress: %f", ((float)j / (float)[documents count]));
-                        [syncProgressBar setProgress:((float)(j + 1) / (float)[documents count]) animated:YES];
-                    });
                     
-                    NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-                    NSString  *documentsDirectory = [paths objectAtIndex:0];  
+                    NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [NSDictionary dictionaryWithObjectsAndKeys:
+                                                 tote.name,@"name",
+                                                 tote.email,@"email",
+                                                 tote.documentIDs, @"documents",
+                                                 nil], @"request",
+                                            nil];
                     
-                    NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
-                    [document setLocalPath:filePath];
-                    [urlData writeToFile:filePath atomically:YES];
+                    NSData *jsonRequest = [NSJSONSerialization dataWithJSONObject:request options:NSJSONWritingPrettyPrinted error:nil];
+                    NSString *test = [[NSString alloc] initWithData:jsonRequest encoding:NSUTF8StringEncoding];
+                    NSLog(@"%@", test);
+                    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:postURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
+                    [req setHTTPBody:jsonRequest];
+                    [req setHTTPMethod:@"POST"];
+                    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+                    [req setValue:[NSString stringWithFormat:@"%d", [jsonRequest length]] forHTTPHeaderField:@"Content-Length"];
+                    NSURLResponse *response = nil;
+                    NSError *error = nil;
+                   
+                    NSData *result = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
+                    
+                    tote.synced = YES;
                 }
-                //Add Document to newCategory
-                [[newCategory documents] addObject:document];
-            }       
-        }
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [statusLabel setText:@"Sync Complete"];
-            [syncActivityIndicator stopAnimating];
-        });
+            }
+            //PULL Documents Down
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [toteStatusLabel setText:@""];
+                [statusLabel setText:@"Connecting To Server"];
+                [syncProgressBar setProgress:0 animated:NO];
+                [syncProgressBar setHidden:NO];
+                
+            });
 
-    });
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/categories"]];
+            
+            NSDictionary* jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            
+            NSArray *categoriesFromServer = [jsonResponse objectForKey:@"categories"];
+            
+            CategoriesStore *categoriesStore = [CategoriesStore sharedStore];
+            [categoriesStore clearStore];
+            for(int i=0; i < [categoriesFromServer count]; i++)
+            {
+                Category *newCategory = [categoriesStore createCategory];
+                NSDictionary *category = [categoriesFromServer objectAtIndex:i];
+                [newCategory setName:[category objectForKey:@"name"]];
+                [newCategory setDocuments:[[NSMutableArray  alloc] init]];
+                NSArray *documents = [category objectForKey:@"documents"];
+                for(int j=0; j < [documents count]; j++)
+                {
+                    Document *document = [[Document alloc] init];
+                    [document setTitle:[[documents objectAtIndex:j] objectForKey:@"name"]];
+                    [document setRemoteURL:[[documents objectAtIndex:j] objectForKey:@"url"]];
+                    [document setDocumentID:[[documents objectAtIndex:j] objectForKey:@"id"]];
+                    
+                    //Download Document
+                    NSURL  *url = [NSURL URLWithString:[document remoteURL]];
+
+                    NSArray *urlParts = [[document remoteURL] componentsSeparatedByString:@"/"];
+                    NSString *fileName = [urlParts lastObject];
+                    NSData *urlData = [NSData dataWithContentsOfURL:url];
+                    if ( urlData )
+                    {
+                        dispatch_sync(dispatch_get_main_queue(), ^{
+                            [statusLabel setText:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
+                            NSLog(@"Progress: %f", ((float)j / (float)[documents count]));
+                            [syncProgressBar setProgress:((float)(j + 1) / (float)[documents count]) animated:YES];
+                        });
+                        
+                        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                        NSString  *documentsDirectory = [paths objectAtIndex:0];  
+                        
+                        NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
+                        [document setLocalPath:filePath];
+                        [urlData writeToFile:filePath atomically:YES];
+                    }
+                    //Add Document to newCategory
+                    [[newCategory documents] addObject:document];
+                }       
+            }
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [statusLabel setText:@"Sync Complete"];
+                [syncActivityIndicator stopAnimating];
+            });
+
+        });
+    } else {
+        [toteStatusLabel setText:@"Could not connect to etote server"];
+    }
 }
 
 
@@ -180,6 +185,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+- (BOOL) pingServer
+{
+    NSURL *url = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/"];
+    NSURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSHTTPURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request
+                          returningResponse:&response error:NULL];
+    return (response != nil);
 }
 
 @end
