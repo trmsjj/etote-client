@@ -24,6 +24,7 @@
 		AF569A5715771195003853B7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF569A5515771195003853B7 /* HomeViewController.xib */; };
 		AF569A5F157860B8003853B7 /* Tote.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A5E157860B8003853B7 /* Tote.m */; };
 		AF569A621578642B003853B7 /* ToteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A611578642A003853B7 /* ToteStore.m */; };
+		AF7A4FA5157BAF4A006C3FD8 /* SyncEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */; };
 		AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251601573D3E40002C619 /* UIKit.framework */; };
 		AF8251631573D3E40002C619 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251621573D3E40002C619 /* Foundation.framework */; };
 		AF8251651573D3E40002C619 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251641573D3E40002C619 /* CoreGraphics.framework */; };
@@ -64,6 +65,8 @@
 		AF569A5E157860B8003853B7 /* Tote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tote.m; sourceTree = "<group>"; };
 		AF569A601578642A003853B7 /* ToteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToteStore.h; sourceTree = "<group>"; };
 		AF569A611578642A003853B7 /* ToteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToteStore.m; sourceTree = "<group>"; };
+		AF7A4FA3157BAF4A006C3FD8 /* SyncEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncEngine.h; sourceTree = "<group>"; };
+		AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEngine.m; sourceTree = "<group>"; };
 		AF82515C1573D3E40002C619 /* etote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8251601573D3E40002C619 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF8251621573D3E40002C619 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +109,7 @@
 		AF569A3F15746A7A003853B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AF7A4FA6157BAF52006C3FD8 /* Sync Engine */,
 				AF7A4F9B157BAB33006C3FD8 /* Document */,
 				AF7A4F9A157BAB29006C3FD8 /* Categories Store */,
 				AF7A4F99157BAB15006C3FD8 /* Category */,
@@ -259,6 +263,15 @@
 			name = "Gradient View";
 			sourceTree = "<group>";
 		};
+		AF7A4FA6157BAF52006C3FD8 /* Sync Engine */ = {
+			isa = PBXGroup;
+			children = (
+				AF7A4FA3157BAF4A006C3FD8 /* SyncEngine.h */,
+				AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */,
+			);
+			name = "Sync Engine";
+			sourceTree = "<group>";
+		};
 		AF8251511573D3E30002C619 = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +412,7 @@
 				AF569A5F157860B8003853B7 /* Tote.m in Sources */,
 				AF569A621578642B003853B7 /* ToteStore.m in Sources */,
 				AF1F51521579AE5D007B5025 /* OBGradientView.m in Sources */,
+				AF7A4FA5157BAF4A006C3FD8 /* SyncEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

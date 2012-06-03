@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SyncEngine.h"
 #import "OBGradientView.h"
 
-@interface SyncViewController : UIViewController
+@interface SyncViewController : UIViewController <SyncEngineDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *toteStatusLabel;
 @property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
-- (BOOL) pingServer;
 @end
