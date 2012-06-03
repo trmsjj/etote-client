@@ -47,8 +47,8 @@
 		AF1F514A1579878C007B5025 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashPageGraphic.png; sourceTree = "<group>"; };
 		AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashPageGraphic@2X.png"; sourceTree = "<group>"; };
-		AF1F51501579AE5D007B5025 /* OBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBGradientView.h; sourceTree = "<group>"; };
-		AF1F51511579AE5D007B5025 /* OBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBGradientView.m; sourceTree = "<group>"; };
+		AF1F51501579AE5D007B5025 /* OBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBGradientView.h; path = etote/OBGradientView.h; sourceTree = "<group>"; };
+		AF1F51511579AE5D007B5025 /* OBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OBGradientView.m; path = etote/OBGradientView.m; sourceTree = "<group>"; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		AF569A3C15741D87003853B7 /* DocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsViewController.h; sourceTree = "<group>"; };
 		AF569A3D15741D87003853B7 /* DocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsViewController.m; sourceTree = "<group>"; };
@@ -106,16 +106,11 @@
 		AF569A3F15746A7A003853B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AF569A4715746E1F003853B7 /* Document.h */,
-				AF569A4815746E1F003853B7 /* Document.m */,
-				AF8251851573DF310002C619 /* CategoriesStore.h */,
-				AF8251861573DF310002C619 /* CategoriesStore.m */,
-				AF8251881573E1460002C619 /* Category.h */,
-				AF8251891573E1460002C619 /* Category.m */,
-				AF569A5D157860B8003853B7 /* Tote.h */,
-				AF569A5E157860B8003853B7 /* Tote.m */,
-				AF569A601578642A003853B7 /* ToteStore.h */,
-				AF569A611578642A003853B7 /* ToteStore.m */,
+				AF7A4F9B157BAB33006C3FD8 /* Document */,
+				AF7A4F9A157BAB29006C3FD8 /* Categories Store */,
+				AF7A4F99157BAB15006C3FD8 /* Category */,
+				AF7A4F98157BAB0E006C3FD8 /* Tote */,
+				AF7A4F97157BAAF9006C3FD8 /* Tote Store */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -123,45 +118,154 @@
 		AF569A4015746A8F003853B7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF569A5315771195003853B7 /* HomeViewController.h */,
-				AF569A5415771195003853B7 /* HomeViewController.m */,
-				AF569A5515771195003853B7 /* HomeViewController.xib */,
-				AF1F51501579AE5D007B5025 /* OBGradientView.h */,
-				AF1F51511579AE5D007B5025 /* OBGradientView.m */,
-				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
-				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
-				AF569A3C15741D87003853B7 /* DocumentsViewController.h */,
-				AF569A3D15741D87003853B7 /* DocumentsViewController.m */,
-				AF82517D1573D77C0002C619 /* CheckoutViewController.h */,
-				AF82517E1573D77C0002C619 /* CheckoutViewController.m */,
-				AF82517F1573D77C0002C619 /* CheckoutViewController.xib */,
-				AF569A4215746B16003853B7 /* SyncViewController.h */,
-				AF569A4315746B16003853B7 /* SyncViewController.m */,
-				AF569A4415746B16003853B7 /* SyncViewController.xib */,
+				AF7A4F9C157BAB43006C3FD8 /* Splash Screen */,
+				AF7A4F9D157BAB4F006C3FD8 /* Categories List Screen */,
+				AF7A4F9E157BAB5A006C3FD8 /* Documents List Screen */,
+				AF7A4F9F157BAB6B006C3FD8 /* Checkout Screen */,
+				AF7A4FA0157BAB75006C3FD8 /* Settings Screen */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		AF569A4115746ABA003853B7 /* temp assets */ = {
+		AF7A4F94157BAAC7006C3FD8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */,
+				AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */,
+				AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */,
+				AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */,
 			);
-			name = "temp assets";
+			name = images;
+			sourceTree = "<group>";
+		};
+		AF7A4F96157BAAD2006C3FD8 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				28713E65157AC01A0065069C /* etote114.png */,
+				28713E63157AC0160065069C /* etote57.png */,
+				28713E4D157668EB0065069C /* etote72.png */,
+				28713E4A157668AD0065069C /* etote144.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		AF7A4F97157BAAF9006C3FD8 /* Tote Store */ = {
+			isa = PBXGroup;
+			children = (
+				AF569A601578642A003853B7 /* ToteStore.h */,
+				AF569A611578642A003853B7 /* ToteStore.m */,
+			);
+			name = "Tote Store";
+			sourceTree = "<group>";
+		};
+		AF7A4F98157BAB0E006C3FD8 /* Tote */ = {
+			isa = PBXGroup;
+			children = (
+				AF569A5D157860B8003853B7 /* Tote.h */,
+				AF569A5E157860B8003853B7 /* Tote.m */,
+			);
+			name = Tote;
+			sourceTree = "<group>";
+		};
+		AF7A4F99157BAB15006C3FD8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				AF8251881573E1460002C619 /* Category.h */,
+				AF8251891573E1460002C619 /* Category.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		AF7A4F9A157BAB29006C3FD8 /* Categories Store */ = {
+			isa = PBXGroup;
+			children = (
+				AF8251851573DF310002C619 /* CategoriesStore.h */,
+				AF8251861573DF310002C619 /* CategoriesStore.m */,
+			);
+			name = "Categories Store";
+			sourceTree = "<group>";
+		};
+		AF7A4F9B157BAB33006C3FD8 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				AF569A4715746E1F003853B7 /* Document.h */,
+				AF569A4815746E1F003853B7 /* Document.m */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
+		AF7A4F9C157BAB43006C3FD8 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AF569A5315771195003853B7 /* HomeViewController.h */,
+				AF569A5415771195003853B7 /* HomeViewController.m */,
+				AF569A5515771195003853B7 /* HomeViewController.xib */,
+			);
+			name = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		AF7A4F9D157BAB4F006C3FD8 /* Categories List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
+				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
+			);
+			name = "Categories List Screen";
+			sourceTree = "<group>";
+		};
+		AF7A4F9E157BAB5A006C3FD8 /* Documents List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AF569A3C15741D87003853B7 /* DocumentsViewController.h */,
+				AF569A3D15741D87003853B7 /* DocumentsViewController.m */,
+			);
+			name = "Documents List Screen";
+			sourceTree = "<group>";
+		};
+		AF7A4F9F157BAB6B006C3FD8 /* Checkout Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AF82517D1573D77C0002C619 /* CheckoutViewController.h */,
+				AF82517E1573D77C0002C619 /* CheckoutViewController.m */,
+				AF82517F1573D77C0002C619 /* CheckoutViewController.xib */,
+			);
+			name = "Checkout Screen";
+			sourceTree = "<group>";
+		};
+		AF7A4FA0157BAB75006C3FD8 /* Settings Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AF569A4215746B16003853B7 /* SyncViewController.h */,
+				AF569A4315746B16003853B7 /* SyncViewController.m */,
+				AF569A4415746B16003853B7 /* SyncViewController.xib */,
+			);
+			name = "Settings Screen";
+			sourceTree = "<group>";
+		};
+		AF7A4FA1157BAB93006C3FD8 /* 3rd party */ = {
+			isa = PBXGroup;
+			children = (
+				AF7A4FA2157BABA4006C3FD8 /* Gradient View */,
+			);
+			name = "3rd party";
+			sourceTree = "<group>";
+		};
+		AF7A4FA2157BABA4006C3FD8 /* Gradient View */ = {
+			isa = PBXGroup;
+			children = (
+				AF1F51501579AE5D007B5025 /* OBGradientView.h */,
+				AF1F51511579AE5D007B5025 /* OBGradientView.m */,
+			);
+			name = "Gradient View";
 			sourceTree = "<group>";
 		};
 		AF8251511573D3E30002C619 = {
 			isa = PBXGroup;
 			children = (
-				28713E65157AC01A0065069C /* etote114.png */,
-				28713E63157AC0160065069C /* etote57.png */,
-				AF1F514C15798ACF007B5025 /* SplashPageGraphic.png */,
-				AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */,
-				AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */,
-				AF1F514D15798ACF007B5025 /* SplashPageGraphic@2X.png */,
-				AF1F514A1579878C007B5025 /* QuartzCore.framework */,
-				28713E4D157668EB0065069C /* etote72.png */,
-				28713E4A157668AD0065069C /* etote144.png */,
 				AF8251661573D3E40002C619 /* etote */,
+				AF7A4F94157BAAC7006C3FD8 /* images */,
+				AF7A4F96157BAAD2006C3FD8 /* icons */,
+				AF7A4FA1157BAB93006C3FD8 /* 3rd party */,
 				AF82515F1573D3E40002C619 /* Frameworks */,
 				AF82515D1573D3E40002C619 /* Products */,
 			);
@@ -178,6 +282,7 @@
 		AF82515F1573D3E40002C619 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF1F514A1579878C007B5025 /* QuartzCore.framework */,
 				AF569A331574151F003853B7 /* QuickLook.framework */,
 				AF8251601573D3E40002C619 /* UIKit.framework */,
 				AF8251621573D3E40002C619 /* Foundation.framework */,
@@ -189,7 +294,6 @@
 		AF8251661573D3E40002C619 /* etote */ = {
 			isa = PBXGroup;
 			children = (
-				AF569A4115746ABA003853B7 /* temp assets */,
 				AF82516F1573D3E40002C619 /* AppDelegate.h */,
 				AF8251701573D3E40002C619 /* AppDelegate.m */,
 				AF569A4015746A8F003853B7 /* Controllers */,
