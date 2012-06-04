@@ -117,20 +117,29 @@
                                       nil], @"request",
                                      nil];
             
-            NSData *jsonRequest = [NSJSONSerialization dataWithJSONObject:request options:NSJSONWritingPrettyPrinted error:nil];
-            NSString *test = [[NSString alloc] initWithData:jsonRequest encoding:NSUTF8StringEncoding];
-            NSLog(@"%@", test);
-            NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:postURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
+            NSData *jsonRequest = [NSJSONSerialization dataWithJSONObject:request 
+                                                                  options:NSJSONWritingPrettyPrinted 
+                                                                    error:nil];
+
+            NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:postURL
+                                                               cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
+            
             [req setHTTPBody:jsonRequest];
             [req setHTTPMethod:@"POST"];
             [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [req setValue:[NSString stringWithFormat:@"%d", [jsonRequest length]] forHTTPHeaderField:@"Content-Length"];
-            NSURLResponse *response = nil;
+            [req setValue:[NSString stringWithFormat:@"%d", [jsonRequest length]]forHTTPHeaderField:@"Content-Length"];
+            
+            NSHTTPURLResponse *response = nil;
             NSError *error = nil;
             
-            NSData *result = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
-            
-            tote.synced = YES;
+           [NSURLConnection sendSynchronousRequest:req
+                                 returningResponse:&response
+                                             error:&error];
+
+            if([response statusCode] == 201)
+            {
+                tote.synced = YES;
+            }
         }
     }
 }
