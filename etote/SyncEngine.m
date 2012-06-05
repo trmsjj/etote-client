@@ -102,7 +102,8 @@
 {
     //PUSH Totes UP
     NSArray *totes = [[ToteStore sharedStore] allTotes];
-    NSURL *postURL = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/requests"];
+    NSString *owner = [[NSUserDefaults standardUserDefaults] objectForKey:@"owner"];
+    NSURL *postURL = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/totes"];
     for(int i=0; i< [totes count]; i++)
     {
         Tote *tote = [totes objectAtIndex:i];
@@ -112,9 +113,12 @@
             NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
                                      [NSDictionary dictionaryWithObjectsAndKeys:
                                       tote.name,@"name",
+                                      @"customer comments",@"customer_comments",
+                                      @"owner comments",@"owner_comments",
+                                      owner,@"owner",
                                       tote.email,@"email",
                                       tote.documentIDs, @"documents",
-                                      nil], @"request",
+                                      nil], @"tote",
                                      nil];
             
             NSData *jsonRequest = [NSJSONSerialization dataWithJSONObject:request 

@@ -20,6 +20,8 @@
 @implementation SyncViewController
 @synthesize toteStatusLabel;
 @synthesize gradientView;
+@synthesize serverAddressField;
+@synthesize ownerNameField;
 @synthesize syncActivityIndicator;
 @synthesize statusLabel;
 @synthesize syncProgressBar;
@@ -55,6 +57,10 @@
     }
     return self;
 }
+- (IBAction)settingsSaveButtonSelected:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:[serverAddressField text] forKey:@"server"];
+    [[NSUserDefaults standardUserDefaults] setObject:[ownerNameField text] forKey:@"owner"];
+}
 
 - (void)viewDidLoad
 {
@@ -62,6 +68,12 @@
     [toteStatusLabel setText:@""];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [[self gradientView] setColors:colors];
+    
+    NSString *serverAddress = [[NSUserDefaults standardUserDefaults] objectForKey:@"server"];
+    [serverAddressField setText:serverAddress];
+    
+    NSString *ownerName = [[NSUserDefaults standardUserDefaults] objectForKey:@"owner"];
+    [ownerNameField setText:ownerName];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,6 +94,8 @@
     [self setSyncProgressBar:nil];
     [self setToteStatusLabel:nil];
     [self setGradientView:nil];
+    [self setServerAddressField:nil];
+    [self setOwnerNameField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -90,6 +104,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
++ (void)initialize
+{
+    NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"http://etoteapp.herokuapp.com",@"server",
+                              @"JJ Parker",@"owner",
+                              nil];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
 

@@ -13,4 +13,6 @@
 @interface SyncViewController : UIViewController <SyncEngineDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *toteStatusLabel;
 @property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
+@property (weak, nonatomic) IBOutlet UITextField *serverAddressField;
+@property (weak, nonatomic) IBOutlet UITextField *ownerNameField;
 @end
