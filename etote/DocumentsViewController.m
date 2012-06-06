@@ -11,6 +11,7 @@
 #import "Category.h"
 #import "Document.h"
 #import "OBGradientView.h"
+#import "CheckoutViewController.h"
 
 @implementation DocumentsViewController
 @synthesize documents;
@@ -18,8 +19,21 @@
 - (id)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
+    if(self) {
+        UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
+                                                                           style:UIBarButtonItemStylePlain
+                                                                          target:self
+                                                                          action:@selector(checkoutButtonSelected:)];
+        self.navigationItem.rightBarButtonItem = checkoutButton;   
+    }
     return self;
 }
+
+- (void)checkoutButtonSelected:(id)sender {
+    CheckoutViewController *checkoutViewController = [[CheckoutViewController alloc] init];
+    [[self navigationController] pushViewController:checkoutViewController animated:YES];
+}
+
 
 - (void)viewDidLoad
 {

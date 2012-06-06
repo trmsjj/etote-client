@@ -15,4 +15,6 @@
 }
 @property NSString* name;
 @property NSMutableArray* documents;
+
+-(BOOL)allDocumentsSelected;
 @end

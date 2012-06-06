@@ -7,6 +7,7 @@
 //
 
 #import "Category.h"
+#import "Document.h"
 
 @implementation Category
     @synthesize name;
@@ -27,5 +28,20 @@
         self.documents = [aDecoder decodeObjectForKey:@"documents"];
     }
     return self;
+}
+
+-(BOOL)allDocumentsSelected
+{
+    BOOL allDocsInTote = YES;
+    for(int i=0; i < [documents count]; i++)
+    {
+        Document *doc = [documents objectAtIndex:i];
+        if(doc.inTote == NO)
+        {
+            allDocsInTote = NO;
+            break;
+        }
+    }
+    return allDocsInTote;
 }
 @end

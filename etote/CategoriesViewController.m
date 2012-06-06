@@ -13,6 +13,7 @@
 #import "DocumentsViewController.h"
 #import "CheckoutViewController.h"
 #import "OBGradientView.h"
+#import "Document.h"
 
 @implementation CategoriesViewController
 
@@ -21,11 +22,11 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if(self) {
         [self setTitle:@"Categories"];
-        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
+        UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
                                                                            style:UIBarButtonItemStylePlain
                                                                           target:self
                                                                           action:@selector(checkoutButtonSelected:)];
-        self.navigationItem.rightBarButtonItem = settingsButton;
+        self.navigationItem.rightBarButtonItem = checkoutButton;
     }
     return self;
 }
@@ -82,7 +83,51 @@
     Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[category name]];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(0, 0, 150, 30)];
+    NSString *titleForButton = category.allDocumentsSelected ? @"Remove All" : @"Add All";
+    [button setTitle:titleForButton forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell setAccessoryView:button];
+    
     return cell;
+}
+
+- (void)checkButtonTapped:(id)sender event:(id)event
+{
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil)
+    {
+        [self tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:[indexPath row]];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIButton *button = (UIButton *)cell.accessoryView;
+    BOOL inTote = NO;
+    if([category allDocumentsSelected] == NO)
+    {
+        
+        inTote = YES;
+        [button setTitle:@"Remove All" forState:UIControlStateNormal];
+    }
+    else {
+        inTote = NO;
+        [button setTitle:@"Add All" forState:UIControlStateNormal];
+    }
+    for(int i=0; i < [[category documents] count]; i++)
+    {
+        Document *doc = [[category documents] objectAtIndex:i];
+        [doc setInTote:inTote];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
