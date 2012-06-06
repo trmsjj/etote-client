@@ -18,15 +18,18 @@
 @synthesize emailField;
 @synthesize gradientView;
 @synthesize thankyouLabel;
+@synthesize commentsTextArea;
 
 - (IBAction)saveButtonSelected:(id)sender {
     [[self emailField] resignFirstResponder];
     [[self nameField] resignFirstResponder];
+    [[self commentsTextArea] resignFirstResponder];
     //Save tote to store.
     
     Tote *newTote = [[ToteStore sharedStore] createTote];
     [newTote setName:[nameField text]];
     [newTote setEmail:[emailField text]];
+    [newTote setCustomerComments:[commentsTextArea text]];
     [newTote setDocumentIDs:[[NSMutableArray alloc] init]];
     
     //Loop through categories and add document ids to tote
@@ -77,8 +80,8 @@
     [self setNameField:nil];
     [self setNameField:nil];
     [self setEmailField:nil];
-    [self setGradientView:nil];
     [self setThankyouLabel:nil];
+    [self setGradientView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -93,11 +96,16 @@
     NSLog(@"Return key pressed");
     if(textField == self.nameField)
     {
-        NSLog(@"Keyboard should change");
         [emailField becomeFirstResponder];
+    }else if (textField == self.emailField) {
+        [commentsTextArea becomeFirstResponder];
     }else {
-        [emailField resignFirstResponder];
+        [commentsTextArea resignFirstResponder];
     }
+    return NO;
+}
+
+- (BOOL)textViewShouldReturn:(UITextView*)textArea {
     return YES;
 }
 @end

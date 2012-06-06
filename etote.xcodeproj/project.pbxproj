@@ -25,6 +25,7 @@
 		AF569A5F157860B8003853B7 /* Tote.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A5E157860B8003853B7 /* Tote.m */; };
 		AF569A621578642B003853B7 /* ToteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A611578642A003853B7 /* ToteStore.m */; };
 		AF7A4FA5157BAF4A006C3FD8 /* SyncEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */; };
+		AF7A4FAA157EDF82006C3FD8 /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */; };
 		AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251601573D3E40002C619 /* UIKit.framework */; };
 		AF8251631573D3E40002C619 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251621573D3E40002C619 /* Foundation.framework */; };
 		AF8251651573D3E40002C619 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251641573D3E40002C619 /* CoreGraphics.framework */; };
@@ -32,10 +33,10 @@
 		AF82516D1573D3E40002C619 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF82516C1573D3E40002C619 /* main.m */; };
 		AF8251711573D3E40002C619 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251701573D3E40002C619 /* AppDelegate.m */; };
 		AF8251801573D77C0002C619 /* CheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF82517E1573D77C0002C619 /* CheckoutViewController.m */; };
-		AF8251811573D77C0002C619 /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF82517F1573D77C0002C619 /* CheckoutViewController.xib */; };
 		AF8251841573DCC00002C619 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251831573DCC00002C619 /* CategoriesViewController.m */; };
 		AF8251871573DF310002C619 /* CategoriesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251861573DF310002C619 /* CategoriesStore.m */; };
 		AF82518A1573E1460002C619 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8251891573E1460002C619 /* Category.m */; };
+		AF90BD47157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF90BD46157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.m */; };
 		AFF29D75157A940E005BB79F /* SplashPageGraphic@2X~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */; };
 		AFF29D76157A940E005BB79F /* SplashPageGraphic~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		AF569A611578642A003853B7 /* ToteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToteStore.m; sourceTree = "<group>"; };
 		AF7A4FA3157BAF4A006C3FD8 /* SyncEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncEngine.h; sourceTree = "<group>"; };
 		AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEngine.m; sourceTree = "<group>"; };
+		AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutViewController.xib; sourceTree = "<group>"; };
 		AF82515C1573D3E40002C619 /* etote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8251601573D3E40002C619 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF8251621573D3E40002C619 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,13 +81,14 @@
 		AF8251701573D3E40002C619 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AF82517D1573D77C0002C619 /* CheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckoutViewController.h; sourceTree = "<group>"; };
 		AF82517E1573D77C0002C619 /* CheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutViewController.m; sourceTree = "<group>"; };
-		AF82517F1573D77C0002C619 /* CheckoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutViewController.xib; sourceTree = "<group>"; };
 		AF8251821573DCC00002C619 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		AF8251831573DCC00002C619 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		AF8251851573DF310002C619 /* CategoriesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesStore.h; sourceTree = "<group>"; };
 		AF8251861573DF310002C619 /* CategoriesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesStore.m; sourceTree = "<group>"; };
 		AF8251881573E1460002C619 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		AF8251891573E1460002C619 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		AF90BD45157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = etote/TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		AF90BD46157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = etote/TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		AFF29D73157A940E005BB79F /* SplashPageGraphic@2X~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SplashPageGraphic@2X~iphone.png"; path = "etote/SplashPageGraphic@2X~iphone.png"; sourceTree = "<group>"; };
 		AFF29D74157A940E005BB79F /* SplashPageGraphic~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SplashPageGraphic~iphone.png"; path = "etote/SplashPageGraphic~iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,9 +232,9 @@
 		AF7A4F9F157BAB6B006C3FD8 /* Checkout Screen */ = {
 			isa = PBXGroup;
 			children = (
+				AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */,
 				AF82517D1573D77C0002C619 /* CheckoutViewController.h */,
 				AF82517E1573D77C0002C619 /* CheckoutViewController.m */,
-				AF82517F1573D77C0002C619 /* CheckoutViewController.xib */,
 			);
 			name = "Checkout Screen";
 			sourceTree = "<group>";
@@ -249,6 +252,8 @@
 		AF7A4FA1157BAB93006C3FD8 /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
+				AF90BD45157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.h */,
+				AF90BD46157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.m */,
 				AF7A4FA2157BABA4006C3FD8 /* Gradient View */,
 			);
 			name = "3rd party";
@@ -378,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF82516B1573D3E40002C619 /* InfoPlist.strings in Resources */,
-				AF8251811573D77C0002C619 /* CheckoutViewController.xib in Resources */,
 				AF569A4615746B16003853B7 /* SyncViewController.xib in Resources */,
 				28713E4B157668AD0065069C /* etote144.png in Resources */,
 				28713E4E157668EB0065069C /* etote72.png in Resources */,
@@ -389,6 +393,7 @@
 				AFF29D76157A940E005BB79F /* SplashPageGraphic~iphone.png in Resources */,
 				28713E64157AC0160065069C /* etote57.png in Resources */,
 				28713E66157AC01A0065069C /* etote114.png in Resources */,
+				AF7A4FAA157EDF82006C3FD8 /* CheckoutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +418,7 @@
 				AF569A621578642B003853B7 /* ToteStore.m in Sources */,
 				AF1F51521579AE5D007B5025 /* OBGradientView.m in Sources */,
 				AF7A4FA5157BAF4A006C3FD8 /* SyncEngine.m in Sources */,
+				AF90BD47157EED4000EAAD4B /* TPKeyboardAvoidingScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

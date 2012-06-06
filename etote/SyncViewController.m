@@ -83,7 +83,10 @@
     if([[ToteStore sharedStore] unsyncedToteCount] > 0)
     {
         NSString *toteCountString = [NSString stringWithFormat:@"There are %u unsynced totes.", [[ToteStore sharedStore] unsyncedToteCount]];
-        [toteStatusLabel setText:toteCountString];
+        [statusLabel setText:toteCountString];
+    }
+    else {
+        [statusLabel setText:@""];
     }
 }
 

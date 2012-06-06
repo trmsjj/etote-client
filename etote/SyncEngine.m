@@ -113,7 +113,7 @@
             NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
                                      [NSDictionary dictionaryWithObjectsAndKeys:
                                       tote.name,@"name",
-                                      @"customer comments",@"customer_comments",
+                                      tote.customerComments,@"customer_comments",
                                       @"owner comments",@"owner_comments",
                                       owner,@"owner",
                                       tote.email,@"email",
