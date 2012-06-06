@@ -25,6 +25,7 @@
     [[navController navigationBar] setTintColor:[UIColor colorWithRed:((float)234 / (float)255) green:((float)179/(float)255) blue:((float)43/(float)255) alpha:0.7]];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     return YES;
 }
 
