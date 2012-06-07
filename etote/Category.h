@@ -11,10 +11,14 @@
 @interface Category : NSObject <NSCoding>
 {
     NSString* name;
+    NSString* remoteImageURL;
+    NSString* localImageURL;
     NSMutableArray* documents;
 }
 @property NSString* name;
 @property NSMutableArray* documents;
+@property NSString* remoteImageURL;
+@property NSString* localImageURL;
 
 -(BOOL)allDocumentsSelected;
 @end

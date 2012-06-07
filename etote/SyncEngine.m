@@ -64,6 +64,28 @@
         Category *newCategory = [categoriesStore createCategory];
         NSDictionary *category = [categoriesFromServer objectAtIndex:i];
         [newCategory setName:[category objectForKey:@"name"]];
+        [newCategory setRemoteImageURL:[category objectForKey:@"image_url"]];
+        
+        //Download Document
+        NSURL  *url = [NSURL URLWithString:[newCategory remoteImageURL]];
+        
+        NSArray *urlParts = [[newCategory remoteImageURL] componentsSeparatedByString:@"/"];
+        NSString *fileName = [urlParts lastObject];
+        NSData *urlData = [NSData dataWithContentsOfURL:url];
+        if ( urlData )
+        {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [delegate  statusChangedTo:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
+            });
+            
+            NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString  *documentsDirectory = [paths objectAtIndex:0];  
+            
+            NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
+            [newCategory setLocalImageURL:filePath];
+            [urlData writeToFile:filePath atomically:YES];
+        }
+        
         [newCategory setDocuments:[[NSMutableArray  alloc] init]];
         NSArray *documents = [category objectForKey:@"documents"];
         for(int j=0; j < [documents count]; j++)

@@ -7,6 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface CategoriesViewController : UITableViewController
+#import "AQGridViewController.h"
+@interface CategoriesViewController : AQGridViewController
 @end

@@ -14,29 +14,37 @@
 #import "CheckoutViewController.h"
 #import "OBGradientView.h"
 #import "Document.h"
+#import "ImageDemoGridViewCell.h"
 
 @implementation CategoriesViewController
 
-- (id)init
-{
-    self = [super initWithStyle:UITableViewStyleGrouped];
-    if(self) {
-        [self setTitle:@"Categories"];
-        UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
-                                                                           style:UIBarButtonItemStylePlain
-                                                                          target:self
-                                                                          action:@selector(checkoutButtonSelected:)];
-        self.navigationItem.rightBarButtonItem = checkoutButton;
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
+    [self setTitle:@"Categories"];
+    
+    self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	self.gridView.autoresizesSubviews = YES;
+	self.gridView.delegate = self;
+	self.gridView.dataSource = self;
+
+    
+    
+    UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(checkoutButtonSelected:)];
+    
+
+   
+    
+    self.navigationItem.rightBarButtonItem = checkoutButton;
+    
     OBGradientView *backgroundView = [[OBGradientView alloc] init];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [backgroundView setColors:colors];
-    [[self tableView] setBackgroundView:backgroundView];
+    
+    [[self gridView] setBackgroundView:backgroundView];
+    [self.gridView reloadData];
 }
 
 - (void)checkoutButtonSelected:(id)sender {
@@ -96,7 +104,7 @@
 }
 
 - (void)checkButtonTapped:(id)sender event:(id)event
-{
+{   /*
     NSSet *touches = [event allTouches];
     UITouch *touch = [touches anyObject];
     CGPoint currentTouchPosition = [touch locationInView:self.tableView];
@@ -105,6 +113,7 @@
     {
         [self tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
     }
+    */
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -132,13 +141,61 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    /*
 	[[self tableView] reloadData];
 	[super viewWillAppear:animated];
+    */
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+
+//Grid View Stuff
+- (NSUInteger) numberOfItemsInGridView: (AQGridView *) aGridView
+{
+    return [[[CategoriesStore sharedStore] allCategories] count];
+}
+
+-(void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index
+{
+    //This is really ugly
+    DocumentsViewController *documentsView = [[DocumentsViewController alloc] init];
+    CategoriesStore *store = [CategoriesStore sharedStore];
+    
+    NSMutableArray *documents = [[[store allCategories] objectAtIndex:index] documents];
+    [documentsView setDocuments:documents];
+    
+    [[self navigationController] pushViewController:documentsView animated:YES];
+}
+
+- (AQGridViewCell *) gridView: (AQGridView *) aGridView cellForItemAtIndex: (NSUInteger) index
+{
+    Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:index];
+    static NSString * PlainCellIdentifier = @"PlainCellIdentifier";
+    //static NSString * OffsetCellIdentifier = @"OffsetCellIdentifier";
+    
+    AQGridViewCell * cell = nil;
+
+    ImageDemoGridViewCell * plainCell = (ImageDemoGridViewCell *)[aGridView dequeueReusableCellWithIdentifier: PlainCellIdentifier];
+    if ( plainCell == nil )
+    {
+        plainCell = [[ImageDemoGridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 500, 500)
+                                                 reuseIdentifier: PlainCellIdentifier];
+    }
+    
+    plainCell.image = [UIImage imageWithContentsOfFile:[category localImageURL]];
+    
+    cell = plainCell;
+            
+    return ( cell );
+}
+
+- (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
+{
+    return ( CGSizeMake(450, 300) );
 }
 
 @end

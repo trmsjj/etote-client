@@ -10,12 +10,16 @@
 #import "Document.h"
 
 @implementation Category
-    @synthesize name;
-    @synthesize documents;
+@synthesize name;
+@synthesize documents;
+@synthesize remoteImageURL;
+@synthesize localImageURL;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:remoteImageURL forKey:@"remoteImageURL"];
+    [aCoder encodeObject:localImageURL forKey:@"localImageURL"];
     [aCoder encodeObject:documents forKey:@"documents"];
 }
 
@@ -25,6 +29,8 @@
     if(self)
     {
         self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.remoteImageURL = [aDecoder decodeObjectForKey:@"remoteImageURL"];
+        self.localImageURL = [aDecoder decodeObjectForKey:@"localImageURL"];
         self.documents = [aDecoder decodeObjectForKey:@"documents"];
     }
     return self;
