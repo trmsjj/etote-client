@@ -14,7 +14,6 @@
 #import "CategoriesStore.h"
 
 @implementation SyncEngine
-@synthesize server;
 @synthesize delegate;
 
 -(void) startSync
@@ -50,8 +49,9 @@
 }
 -(void) pullCategoriesAndDocuments
 {
-    
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/categories"]];
+    NSString *server = [[NSUserDefaults standardUserDefaults] objectForKey:@"server"];
+    NSData *data = [NSData dataWithContentsOfURL:
+                    [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", server, @"/api/v1/categories"]]];
     
     NSDictionary* jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     
@@ -103,7 +103,8 @@
     //PUSH Totes UP
     NSArray *totes = [[ToteStore sharedStore] allTotes];
     NSString *owner = [[NSUserDefaults standardUserDefaults] objectForKey:@"owner"];
-    NSURL *postURL = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/api/v1/totes"];
+    NSString *server = [[NSUserDefaults standardUserDefaults] objectForKey:@"server"];
+    NSURL *postURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", server, @"/api/v1/totes"]];
     for(int i=0; i< [totes count]; i++)
     {
         Tote *tote = [totes objectAtIndex:i];
@@ -149,7 +150,7 @@
 }
 -(BOOL)pingServer
 {
-    NSURL *url = [NSURL URLWithString:@"http://etoteapp.herokuapp.com/"];
+    NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"server"]];
     NSURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSHTTPURLResponse *response = nil;
     [NSURLConnection sendSynchronousRequest:request

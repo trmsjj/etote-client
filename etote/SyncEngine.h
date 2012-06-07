@@ -19,9 +19,7 @@
 @interface SyncEngine : NSObject
 {
     id <SyncEngineDelegate> delegate;
-    NSString * server;
 }
-@property NSString * server;
 @property id <SyncEngineDelegate> delegate;
 -(BOOL)pingServer;
 -(void)startSync;
