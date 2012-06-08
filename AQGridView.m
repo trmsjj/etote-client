@@ -515,8 +515,10 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 	    // In-call status bar influences footer position
 		CGRect statusRect = [UIApplication sharedApplication].statusBarFrame;
 	    CGFloat statusHeight = MIN(CGRectGetWidth(statusRect), CGRectGetHeight(statusRect))  - 20;
+        NSLog(@"%f", statusHeight);
 
 	    CGFloat footerHeight = CGRectGetHeight(self.gridFooterView.bounds);
+        statusHeight = 0 - footerHeight;
 	    CGFloat minimumHeight = statusHeight + CGRectGetHeight(self.bounds) + footerHeight;
 	    if (newSize.height < footerHeight + minimumHeight)
 	        newSize.height = minimumHeight;
@@ -668,7 +670,7 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 	CGRect rect = CGRectZero;
 	rect.size.width = self.bounds.size.width;
 	rect.size.height = self.contentSize.height -  (_gridData.topPadding + _gridData.bottomPadding);
-	rect.origin.y += _gridData.topPadding;
+	//rect.origin.y += _gridData.topPadding;
 
 	// Make sure background is an integral number of rows tall. That way, it draws patterned colours correctly on all OSes.
 	CGRect backgroundRect = rect;

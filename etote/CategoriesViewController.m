@@ -22,12 +22,26 @@
 {
     [self setTitle:@"Categories"];
     
+    UILabel *instructions = [[UILabel alloc] init];
+    [instructions setBackgroundColor:[UIColor clearColor]];
+    [instructions setOpaque:NO];
+    [instructions setText:@"Now pick a product category"];
+    [instructions setFont:[UIFont systemFontOfSize:30.0]];
+    [instructions setShadowColor:[UIColor blackColor]];
+    [instructions setShadowOffset:CGSizeMake(0, 1)];
+    [instructions setTextColor:[UIColor whiteColor]];
+    [instructions setLineBreakMode:UILineBreakModeWordWrap];
+    [instructions setTextAlignment:UITextAlignmentCenter];
+    [instructions setNumberOfLines:0];
+    [instructions sizeToFit];
+    
+    self.gridView.gridHeaderView = instructions;
+    
+    
     self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	self.gridView.autoresizesSubviews = YES;
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
-
-    
     
     UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
                                                                        style:UIBarButtonItemStylePlain
@@ -43,7 +57,7 @@
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [backgroundView setColors:colors];
     
-    [[self gridView] setBackgroundView:backgroundView];
+    [self.gridView setBackgroundView:backgroundView];
     [self.gridView reloadData];
 }
 

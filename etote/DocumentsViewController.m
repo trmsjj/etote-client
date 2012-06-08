@@ -42,7 +42,22 @@
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [backgroundView setColors:colors];
     [[self tableView] setBackgroundView:backgroundView];
+    
+    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 120)];
+    [instructions setBackgroundColor:[UIColor clearColor]];
+    [instructions setText:@"To view a document click its name.\nClick add to add it to your tote.\nRemember to checkout when you are finished!"];
+    [instructions setFont:[UIFont systemFontOfSize:26]];
+    [instructions setShadowColor:[UIColor blackColor]];
+    [instructions setShadowOffset:CGSizeMake(0, 1)];
+    [instructions setTextColor:[UIColor whiteColor]];
+    [instructions setLineBreakMode:UILineBreakModeWordWrap];
+    [instructions setTextAlignment:UITextAlignmentCenter];
+    [instructions setNumberOfLines:0];
+    //[instructions sizeToFit];
+    NSLog(@"%@", [instructions bounds]);
+    self.tableView.tableHeaderView = instructions;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

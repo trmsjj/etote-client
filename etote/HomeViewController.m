@@ -14,9 +14,11 @@
 @implementation HomeViewController
 @synthesize gradientView;
 @synthesize welcomeTextLabel;
+
 - (void)getStarted:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc] init];
+    [[categoriesViewController gridView] setBackgroundViewExtendsUp:NO];
     [[self navigationController] pushViewController:categoriesViewController animated:YES];
 }
 
