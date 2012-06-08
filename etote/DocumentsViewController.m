@@ -159,6 +159,7 @@
         [document setInTote:NO];
         [button setTitle:@"Add" forState:UIControlStateNormal];
     }
+    [[self tableView] reloadData];
 }
 
 -(id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
