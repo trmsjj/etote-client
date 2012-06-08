@@ -182,7 +182,7 @@
     ImageDemoGridViewCell * plainCell = (ImageDemoGridViewCell *)[aGridView dequeueReusableCellWithIdentifier: PlainCellIdentifier];
     if ( plainCell == nil )
     {
-        plainCell = [[ImageDemoGridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 500, 500)
+        plainCell = [[ImageDemoGridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 350, 300)
                                                  reuseIdentifier: PlainCellIdentifier];
     }
     
@@ -195,7 +195,7 @@
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
-    return ( CGSizeMake(450, 300) );
+    return ( CGSizeMake(350, 300) );
 }
 
 @end
