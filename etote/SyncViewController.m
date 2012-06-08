@@ -38,7 +38,9 @@
 
 -(void)statusChangedTo:(NSString *)statusString
 {
-    [statusLabel setText:statusString];
+	NSString *cleanStatus = [statusString stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+    cleanStatus = [cleanStatus stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [statusLabel setText:cleanStatus];
 }
 -(void)progressChangedTo:(float)progress
 {
