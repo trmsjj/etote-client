@@ -42,7 +42,7 @@
 						<string key="NSFrame">{{43, 703}, {683, 181}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="426728113"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -79,6 +79,7 @@ IHlvdSBqdXN0IHRoZSBpbmZvcm1hdGlvbiB5b3Ugd2FudCENA</string>
 						<string key="NSFrame">{{134, 152}, {531, 510}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="52082375"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="IBUIContentMode">4</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -92,7 +93,7 @@ IHlvdSBqdXN0IHRoZSBpbmZvcm1hdGlvbiB5b3Ugd2FudCENA</string>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="52082375"/>
+				<reference key="NSNextKeyView" ref="426728113"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC4zNjY0MjMyMzM3IDAuMzY2NDIzMjMzNyAwLjM2NjQyMzIzMzcAA</bytes>
@@ -233,7 +234,7 @@ IHlvdSBqdXN0IHRoZSBpbmZvcm1hdGlvbiB5b3Ugd2FudCENA</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">SplashPageGraphic.png</string>
-			<string key="NS.object.0">{500, 464}</string>
+			<string key="NS.object.0">{250, 232}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
