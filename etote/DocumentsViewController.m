@@ -70,12 +70,21 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [documents count];
+    if(section == 0)
+    {
+        return 1;
+    }
+    else {
+        return [documents count];
+    }
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
     if(!cell)
@@ -83,19 +92,45 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
-    Document *document = [documents objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[document title]];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setFrame:CGRectMake(0, 0, 75, 30)];
-    NSString *titleForButton = document.inTote ? @"Remove" : @"Add";
-    [button setTitle:titleForButton forState:UIControlStateNormal];
+    if(indexPath.section == 0)
+    {
+        [[cell textLabel] setText:@""];
+        UIButton *addAllButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [addAllButton setFrame:CGRectMake(0, 0, 120, 30)];
+        NSString *buttonText = [self allDocumentsSelected] ? @"Remove All" : @"Add All";
+        [addAllButton setTitle:buttonText forState:UIControlStateNormal];
+        [addAllButton addTarget:self action:@selector(addAllButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [cell setAccessoryView:addAllButton];
+        [cell setBackgroundColor:[UIColor clearColor]];
+        cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];        
+    }
+    else 
+    {
+        
+        Document *document = [documents objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[document title]];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setFrame:CGRectMake(0, 0, 75, 30)];
+        NSString *titleForButton = document.inTote ? @"Remove" : @"Add";
+        [button setTitle:titleForButton forState:UIControlStateNormal];
 
-    [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
-    
-    [cell setAccessoryView:button];
-    
+        [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell setAccessoryView:button];
+    }
     return cell;
+}
+- (void)addAllButtonTapped
+{
+    if([self allDocumentsSelected])
+    {
+        [self setDocumentInToteTo:NO];
+    }
+    else {
+        [self setDocumentInToteTo:YES];
+    }
+    [[self tableView] reloadData];
 }
 
 - (void)checkButtonTapped:(id)sender event:(id)event
@@ -139,5 +174,27 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+- (BOOL)allDocumentsSelected
+{
+    for(int i=0; i < [documents count]; i++)
+    {
+        Document *doc = [documents objectAtIndex:i];
+        if(doc.inTote == NO)
+        {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (void)setDocumentInToteTo:(BOOL)inTote
+{
+for(int i=0; i < [documents count]; i++)
+{
+    Document *doc = [documents objectAtIndex:i];
+    doc.inTote = inTote;
+}
 }
 @end
