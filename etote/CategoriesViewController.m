@@ -15,6 +15,7 @@
 #import "OBGradientView.h"
 #import "Document.h"
 #import "ImageDemoGridViewCell.h"
+#import "ToteViewController.h"
 
 @implementation CategoriesViewController
 
@@ -43,15 +44,15 @@
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
     
-    UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
+    UIBarButtonItem *viewToteButton = [[UIBarButtonItem alloc] initWithTitle:@"View Tote"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
-                                                                      action:@selector(checkoutButtonSelected:)];
+                                                                      action:@selector(viewToteButtonSelected:)];
     
 
    
     
-    self.navigationItem.rightBarButtonItem = checkoutButton;
+    self.navigationItem.rightBarButtonItem = viewToteButton;
     
     OBGradientView *backgroundView = [[OBGradientView alloc] init];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
@@ -61,9 +62,9 @@
     [self.gridView reloadData];
 }
 
-- (void)checkoutButtonSelected:(id)sender {
-    CheckoutViewController *checkoutViewController = [[CheckoutViewController alloc] init];
-    [[self navigationController] pushViewController:checkoutViewController animated:YES];
+- (void)viewToteButtonSelected:(id)sender {
+    ToteViewController *toteViewController = [[ToteViewController alloc] init];
+    [[self navigationController] pushViewController:toteViewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
