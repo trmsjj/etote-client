@@ -73,23 +73,30 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [[[CategoriesStore sharedStore] allCategories] count];
+    return [[[CategoriesStore sharedStore] allCategories] count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:section];
-    int numberOfItemsInTote = 0;
-    for(int i=0; i < [[category documents] count]; i++)
+    if(section == 0)
     {
-        Document *doc = [[category documents] objectAtIndex:i];
-        if(doc.inTote == YES)
-        {
-            numberOfItemsInTote++;
-        }
+        return 1;
     }
-    return numberOfItemsInTote;
+    else {
+        // Return the number of rows in the section.
+        int categoryIndex = section - 1;
+        Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:categoryIndex];
+        int numberOfItemsInTote = 0;
+        for(int i=0; i < [[category documents] count]; i++)
+        {
+            Document *doc = [[category documents] objectAtIndex:i];
+            if(doc.inTote == YES)
+            {
+                numberOfItemsInTote++;
+            }
+        }
+        return numberOfItemsInTote;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,21 +107,44 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:indexPath.section];
-    
-    NSMutableArray *docsFromSectionInTote = [[NSMutableArray alloc] init];
-    
-    for(int i =0; i < [[category documents] count]; i++)
+    if(indexPath.section == 0)
     {
-        Document *doc = [[category documents] objectAtIndex:i];
-        if(doc.inTote)
-        {
-            [docsFromSectionInTote addObject:doc];
-        }
+        [[cell textLabel] setText:@""];
+        UIButton *clearToteButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [clearToteButton setFrame:CGRectMake(0, 0, 120, 30)];
+        NSString *buttonText = @"Clear Tote";
+        [clearToteButton setTitle:buttonText forState:UIControlStateNormal];
+        [clearToteButton addTarget:self action:@selector(clearTote) forControlEvents:UIControlEventTouchUpInside];
+        [cell setAccessoryView:clearToteButton];
+        [cell setBackgroundColor:[UIColor clearColor]];
+        cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];  
     }
-    Document *doc = [docsFromSectionInTote objectAtIndex:indexPath.row];
-    [[cell textLabel] setText:doc.title];
+    else
+    {
+        int categoryIndex = indexPath.section - 1;
+
+        Category *category = [[[CategoriesStore sharedStore] allCategories] objectAtIndex:categoryIndex];
+        
+        NSMutableArray *docsFromSectionInTote = [[NSMutableArray alloc] init];
+        
+        for(int i =0; i < [[category documents] count]; i++)
+        {
+            Document *doc = [[category documents] objectAtIndex:i];
+            if(doc.inTote)
+            {
+                [docsFromSectionInTote addObject:doc];
+            }
+        }
+        Document *doc = [docsFromSectionInTote objectAtIndex:indexPath.row];
+        [[cell textLabel] setText:doc.title];
+    }
     return cell;
+}
+
+-(void) clearTote
+{
+    [[CategoriesStore sharedStore] emptyTote];
+    [[self tableView] reloadData];
 }
 
 -(void) viewWillAppear:(BOOL)animated
