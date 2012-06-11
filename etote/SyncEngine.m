@@ -56,6 +56,14 @@
     NSDictionary* jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     
     NSArray *categoriesFromServer = [jsonResponse objectForKey:@"categories"];
+    int documentsDownloaded = 0;
+    int totalDocuments = 0;
+    for(int i=0; i < [categoriesFromServer count]; i++)
+    {
+        NSDictionary *category = [categoriesFromServer objectAtIndex:i];
+        NSArray *documents = [category objectForKey:@"documents"];
+        totalDocuments += [documents count];
+    }
     
     CategoriesStore *categoriesStore = [CategoriesStore sharedStore];
     [categoriesStore clearStore];
@@ -105,7 +113,7 @@
             {
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [delegate  statusChangedTo:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
-                    [delegate progressChangedTo:((float)(j + 1) / (float)[documents count])];
+                    [delegate progressChangedTo:((float)(documentsDownloaded + 1) / totalDocuments)];
                 });
                 
                 NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -116,6 +124,7 @@
                 [urlData writeToFile:filePath atomically:YES];
             }
             //Add Document to newCategory
+            documentsDownloaded++;
             [[newCategory documents] addObject:document];
         }       
     }

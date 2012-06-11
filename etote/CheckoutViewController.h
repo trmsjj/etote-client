@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UILabel *thankyouLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIButton *clearToteButton;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *gradientView;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextArea;
 @end

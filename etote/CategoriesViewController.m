@@ -15,21 +15,22 @@
 #import "OBGradientView.h"
 #import "Document.h"
 #import "ImageDemoGridViewCell.h"
-#import "ToteViewController.h"
 
 @implementation CategoriesViewController
+
 
 - (void)viewDidLoad
 {
     [self setTitle:@"Categories"];
+    [[self navigationItem] setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil]];
     
     UILabel *instructions = [[UILabel alloc] init];
     [instructions setBackgroundColor:[UIColor clearColor]];
     [instructions setOpaque:NO];
-    [instructions setText:@"Now pick a product category"];
-    [instructions setFont:[UIFont systemFontOfSize:30.0]];
-    [instructions setShadowColor:[UIColor blackColor]];
-    [instructions setShadowOffset:CGSizeMake(0, 1)];
+    [instructions setText:@"First pick one of our product categories..."];
+    [instructions setFont:[UIFont systemFontOfSize:25.0]];
+    //[instructions setShadowColor:[UIColor blackColor]];
+    //[instructions setShadowOffset:CGSizeMake(0, 1)];
     [instructions setTextColor:[UIColor whiteColor]];
     [instructions setLineBreakMode:UILineBreakModeWordWrap];
     [instructions setTextAlignment:UITextAlignmentCenter];
@@ -44,15 +45,11 @@
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
     
-    UIBarButtonItem *viewToteButton = [[UIBarButtonItem alloc] initWithTitle:@"View Tote"
+    UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
-                                                                      action:@selector(viewToteButtonSelected:)];
-    
-
-   
-    
-    self.navigationItem.rightBarButtonItem = viewToteButton;
+                                                                      action:@selector(checkoutButtonSelected:)];
+    self.navigationItem.rightBarButtonItem = checkoutButton;   
     
     OBGradientView *backgroundView = [[OBGradientView alloc] init];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
@@ -62,9 +59,9 @@
     [self.gridView reloadData];
 }
 
-- (void)viewToteButtonSelected:(id)sender {
-    ToteViewController *toteViewController = [[ToteViewController alloc] init];
-    [[self navigationController] pushViewController:toteViewController animated:YES];
+- (void)checkoutButtonSelected:(id)sender {
+    CheckoutViewController *checkoutViewController = [[CheckoutViewController alloc] init];
+    [[self navigationController] pushViewController:checkoutViewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,9 +75,6 @@
     
     [[self navigationController] pushViewController:documentsView animated:YES];
 }
-
-
-
 
 
 - (id)initWithStyle:(UITableViewStyle)style

@@ -22,4 +22,5 @@
 - (Category *)createCategory;
 - (void)emptyTote;
 - (void)clearStore;
+- (int)numberOfItemsInTote;
 @end

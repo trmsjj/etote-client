@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "CategoriesStore.h"
 #import "ToteStore.h"
+#import "ETNavController.h"
 
 @implementation AppDelegate
 
@@ -21,7 +22,7 @@
     
     HomeViewController *homeViewController = [[HomeViewController alloc] init];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    ETNavController *navController = [[ETNavController alloc] initWithRootViewController:homeViewController];
     [[navController navigationBar] setTintColor:[UIColor colorWithRed:((float)234 / (float)255) green:((float)179/(float)255) blue:((float)43/(float)255) alpha:0.7]];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

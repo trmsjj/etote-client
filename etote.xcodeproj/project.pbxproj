@@ -28,7 +28,6 @@
 		AF32CE681580E7CE000CC802 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = AF32CE5D1580E7CE000CC802 /* NSIndexSet+AQIsSetContiguous.m */; };
 		AF32CE691580E7CE000CC802 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF32CE5F1580E7CE000CC802 /* UIColor+AQGridView.m */; };
 		AF32CE6C1580EB44000CC802 /* ImageDemoGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF32CE6B1580EB44000CC802 /* ImageDemoGridViewCell.m */; };
-		AF32CE6E1580EC80000CC802 /* zeplay.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AF32CE6D1580EC80000CC802 /* zeplay.jpeg */; };
 		AF32CE751581045E000CC802 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = AF32CE741581045E000CC802 /* CustomBadge.m */; };
 		AF569A341574151F003853B7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF569A331574151F003853B7 /* QuickLook.framework */; };
 		AF569A3E15741D87003853B7 /* DocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A3D15741D87003853B7 /* DocumentsViewController.m */; };
@@ -41,7 +40,7 @@
 		AF569A621578642B003853B7 /* ToteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A611578642A003853B7 /* ToteStore.m */; };
 		AF7A4FA5157BAF4A006C3FD8 /* SyncEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */; };
 		AF7A4FAA157EDF82006C3FD8 /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */; };
-		AF7A5C921582EFE50048CD2F /* ToteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5C911582EFE50048CD2F /* ToteViewController.m */; };
+		AF7A5C9D1586A21C0048CD2F /* ETNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5C9C1586A21C0048CD2F /* ETNavController.m */; };
 		AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251601573D3E40002C619 /* UIKit.framework */; };
 		AF8251631573D3E40002C619 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251621573D3E40002C619 /* Foundation.framework */; };
 		AF8251651573D3E40002C619 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251641573D3E40002C619 /* CoreGraphics.framework */; };
@@ -90,9 +89,8 @@
 		AF32CE5D1580E7CE000CC802 /* NSIndexSet+AQIsSetContiguous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIsSetContiguous.m"; sourceTree = "<group>"; };
 		AF32CE5E1580E7CE000CC802 /* UIColor+AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AQGridView.h"; sourceTree = "<group>"; };
 		AF32CE5F1580E7CE000CC802 /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
-		AF32CE6A1580EB43000CC802 /* ImageDemoGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDemoGridViewCell.h; sourceTree = "<group>"; };
-		AF32CE6B1580EB44000CC802 /* ImageDemoGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDemoGridViewCell.m; sourceTree = "<group>"; };
-		AF32CE6D1580EC80000CC802 /* zeplay.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zeplay.jpeg; sourceTree = "<group>"; };
+		AF32CE6A1580EB43000CC802 /* ImageDemoGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageDemoGridViewCell.h; path = ../ImageDemoGridViewCell.h; sourceTree = "<group>"; };
+		AF32CE6B1580EB44000CC802 /* ImageDemoGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageDemoGridViewCell.m; path = ../ImageDemoGridViewCell.m; sourceTree = "<group>"; };
 		AF32CE731581045E000CC802 /* CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomBadge.h; path = etote/CustomBadge.h; sourceTree = "<group>"; };
 		AF32CE741581045E000CC802 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomBadge.m; path = etote/CustomBadge.m; sourceTree = "<group>"; };
 		AF569A331574151F003853B7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -113,8 +111,8 @@
 		AF7A4FA3157BAF4A006C3FD8 /* SyncEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncEngine.h; sourceTree = "<group>"; };
 		AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEngine.m; sourceTree = "<group>"; };
 		AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutViewController.xib; sourceTree = "<group>"; };
-		AF7A5C901582EFE50048CD2F /* ToteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToteViewController.h; path = "Tote Screen/ToteViewController.h"; sourceTree = "<group>"; };
-		AF7A5C911582EFE50048CD2F /* ToteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToteViewController.m; path = "Tote Screen/ToteViewController.m"; sourceTree = "<group>"; };
+		AF7A5C9B1586A21C0048CD2F /* ETNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETNavController.h; sourceTree = "<group>"; };
+		AF7A5C9C1586A21C0048CD2F /* ETNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETNavController.m; sourceTree = "<group>"; };
 		AF82515C1573D3E40002C619 /* etote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8251601573D3E40002C619 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF8251621573D3E40002C619 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -288,6 +286,8 @@
 		AF7A4F9D157BAB4F006C3FD8 /* Categories List Screen */ = {
 			isa = PBXGroup;
 			children = (
+				AF32CE6A1580EB43000CC802 /* ImageDemoGridViewCell.h */,
+				AF32CE6B1580EB44000CC802 /* ImageDemoGridViewCell.m */,
 				AF8251821573DCC00002C619 /* CategoriesViewController.h */,
 				AF8251831573DCC00002C619 /* CategoriesViewController.m */,
 			);
@@ -357,9 +357,6 @@
 		AF8251511573D3E30002C619 = {
 			isa = PBXGroup;
 			children = (
-				AF32CE6D1580EC80000CC802 /* zeplay.jpeg */,
-				AF32CE6A1580EB43000CC802 /* ImageDemoGridViewCell.h */,
-				AF32CE6B1580EB44000CC802 /* ImageDemoGridViewCell.m */,
 				AF8251661573D3E40002C619 /* etote */,
 				AF7A4F94157BAAC7006C3FD8 /* images */,
 				AF7A4F96157BAAD2006C3FD8 /* icons */,
@@ -392,8 +389,8 @@
 		AF8251661573D3E40002C619 /* etote */ = {
 			isa = PBXGroup;
 			children = (
-				AF7A5C901582EFE50048CD2F /* ToteViewController.h */,
-				AF7A5C911582EFE50048CD2F /* ToteViewController.m */,
+				AF7A5C9B1586A21C0048CD2F /* ETNavController.h */,
+				AF7A5C9C1586A21C0048CD2F /* ETNavController.m */,
 				AF82516F1573D3E40002C619 /* AppDelegate.h */,
 				AF8251701573D3E40002C619 /* AppDelegate.m */,
 				AF569A4015746A8F003853B7 /* Controllers */,
@@ -472,7 +469,6 @@
 				28713E64157AC0160065069C /* etote57.png in Resources */,
 				28713E66157AC01A0065069C /* etote114.png in Resources */,
 				AF7A4FAA157EDF82006C3FD8 /* CheckoutViewController.xib in Resources */,
-				AF32CE6E1580EC80000CC802 /* zeplay.jpeg in Resources */,
 				65272DA01582541500883FC6 /* SplashPageGraphic.png in Resources */,
 				65272DA11582541500883FC6 /* SplashPageGraphic@2x.png in Resources */,
 				65272DA21582541500883FC6 /* SplashPageGraphic@2x~ipad.png in Resources */,
@@ -514,7 +510,7 @@
 				AF32CE691580E7CE000CC802 /* UIColor+AQGridView.m in Sources */,
 				AF32CE6C1580EB44000CC802 /* ImageDemoGridViewCell.m in Sources */,
 				AF32CE751581045E000CC802 /* CustomBadge.m in Sources */,
-				AF7A5C921582EFE50048CD2F /* ToteViewController.m in Sources */,
+				AF7A5C9D1586A21C0048CD2F /* ETNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -66,6 +66,7 @@
     [[self gradientView] setColors:colors];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getStarted:)];
     [self.view addGestureRecognizer:tapGesture];
+    [[self navigationItem] setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonSelected:)]];
 }
 
 - (void)viewDidUnload

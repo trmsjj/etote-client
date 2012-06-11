@@ -18,13 +18,30 @@
 @synthesize emailField;
 @synthesize gradientView;
 @synthesize thankyouLabel;
+@synthesize sendButton;
+@synthesize clearToteButton;
 @synthesize commentsTextArea;
+
+- (IBAction)clearToteButtonSelected:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Clear your tote?" message:@"Are you sure you want to clear your tote?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    
+    
+    [alert show];
+}
 
 - (IBAction)saveButtonSelected:(id)sender {
     [[self emailField] resignFirstResponder];
     [[self nameField] resignFirstResponder];
     [[self commentsTextArea] resignFirstResponder];
     //Save tote to store.
+    
+    //validate tote
+    if(([[nameField text] length] > 0 &&
+       [[emailField text] length] > 0) == FALSE){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Required Fields" message:@"Please enter both your name and email address to continue" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     
     Tote *newTote = [[ToteStore sharedStore] createTote];
     [newTote setName:[nameField text]];
@@ -46,7 +63,7 @@
             }
         }
     }
-    [thankyouLabel setHidden:NO];
+    [thankyouLabel setText:@"We will email you the literature when we get back to the office."];
     [[CategoriesStore sharedStore] emptyTote];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:NO];
 }
@@ -70,7 +87,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [thankyouLabel setHidden:YES];
+    [[self navigationItem] setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil]];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [[self gradientView] setColors:colors];
 }
@@ -82,6 +99,8 @@
     [self setEmailField:nil];
     [self setThankyouLabel:nil];
     [self setGradientView:nil];
+    [self setSendButton:nil];
+    [self setClearToteButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -107,5 +126,36 @@
 
 - (BOOL)textViewShouldReturn:(UITextView*)textArea {
     return YES;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    int itemsCount = [[CategoriesStore sharedStore] numberOfItemsInTote];
+if(itemsCount == 0) {
+    [[self nameField] setEnabled:NO];
+    [[self emailField] setEnabled:NO];
+    [[self sendButton] setEnabled:NO];
+    [[self commentsTextArea] setEditable:NO];
+    [[self clearToteButton] setEnabled:NO];
+    [thankyouLabel setText:@"You do not have any documents in your tote. Please go add some before checking out."];
+}else {
+    [[self nameField] setEnabled:YES];
+    [[self emailField] setEnabled:YES];
+    [[self sendButton] setEnabled:YES];
+    [[self commentsTextArea] setEditable:YES];
+    [[self clearToteButton] setEnabled:YES];
+    NSString *labelText = [NSString stringWithFormat:
+                           @"You have %u documents in your tote.", itemsCount];
+    
+    [thankyouLabel setText:labelText];
+}
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        [[CategoriesStore sharedStore] emptyTote];
+        [self viewWillAppear:NO];
+    }
 }
 @end

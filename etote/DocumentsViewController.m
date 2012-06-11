@@ -12,7 +12,6 @@
 #import "Document.h"
 #import "OBGradientView.h"
 #import "CheckoutViewController.h"
-#import "ToteViewController.h"
 
 @implementation DocumentsViewController
 @synthesize documents;
@@ -21,41 +20,41 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if(self) {
-        UIBarButtonItem *viewToteButton = [[UIBarButtonItem alloc] initWithTitle:@"View Tote"
+        UIBarButtonItem *checkoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Checkout"
                                                                            style:UIBarButtonItemStylePlain
                                                                           target:self
-                                                                          action:@selector(viewToteButtonSelected:)];
-        self.navigationItem.rightBarButtonItem = viewToteButton;   
+                                                                          action:@selector(checkoutButtonSelected:)];
+        self.navigationItem.rightBarButtonItem = checkoutButton;     
     }
     return self;
 }
 
-- (void)viewToteButtonSelected:(id)sender {
-    ToteViewController *toteViewController = [[ToteViewController alloc] init];
-    [[self navigationController] pushViewController:toteViewController animated:YES];
+- (void)checkoutButtonSelected:(id)sender {
+    CheckoutViewController *checkoutViewController = [[CheckoutViewController alloc] init];
+    [[self navigationController] pushViewController:checkoutViewController animated:YES];
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self navigationItem] setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil]];
+    
     OBGradientView *backgroundView = [[OBGradientView alloc] init];
     NSArray *colors = [NSArray arrayWithObjects:[UIColor lightGrayColor], [UIColor blackColor], nil];
     [backgroundView setColors:colors];
     [[self tableView] setBackgroundView:backgroundView];
     
-    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 120)];
+    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
     [instructions setBackgroundColor:[UIColor clearColor]];
-    [instructions setText:@"To view a document click its name.\nClick add to add it to your tote.\nRemember to checkout when you are finished!"];
-    [instructions setFont:[UIFont systemFontOfSize:26]];
-    [instructions setShadowColor:[UIColor blackColor]];
-    [instructions setShadowOffset:CGSizeMake(0, 1)];
+    [instructions setText:@"Next take a look at our literature...\n\nJust like a shopping cart, if you find\nsomething you like just click the 'Add' button.\n\nDon't forget when you are done click the 'Checkout' button!"];
+    [instructions setFont:[UIFont systemFontOfSize:25]];
+    //[instructions setShadowColor:[UIColor blackColor]];
+    //[instructions setShadowOffset:CGSizeMake(0, 1)];
     [instructions setTextColor:[UIColor whiteColor]];
     [instructions setLineBreakMode:UILineBreakModeWordWrap];
     [instructions setTextAlignment:UITextAlignmentCenter];
     [instructions setNumberOfLines:0];
-    //[instructions sizeToFit];
-    NSLog(@"%@", [instructions bounds]);
     self.tableView.tableHeaderView = instructions;
 }
 
@@ -199,4 +198,5 @@ for(int i=0; i < [documents count]; i++)
     doc.inTote = inTote;
 }
 }
+
 @end

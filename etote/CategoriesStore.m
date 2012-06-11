@@ -89,4 +89,22 @@
     return [NSKeyedArchiver archiveRootObject:allCategories toFile:path];
 }
 
+-(NSInteger)numberOfItemsInTote
+{
+    int toteItemCount = 0;
+    for(int i=0; i < [allCategories count]; i++)
+    {
+        NSMutableArray *documents = [[allCategories objectAtIndex:i] documents];
+        for(int j=0; j < [documents count]; j++)
+        {
+            Document *doc = [documents objectAtIndex:j];
+            if(doc.inTote == YES)
+            {
+                toteItemCount++;
+            }
+        }
+    }
+    return toteItemCount;
+}
+
 @end
