@@ -38,9 +38,12 @@
 		AF569A5715771195003853B7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF569A5515771195003853B7 /* HomeViewController.xib */; };
 		AF569A5F157860B8003853B7 /* Tote.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A5E157860B8003853B7 /* Tote.m */; };
 		AF569A621578642B003853B7 /* ToteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AF569A611578642A003853B7 /* ToteStore.m */; };
+		AF6ECFA31586C7A800BC5482 /* AdminEditToteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6ECFA11586C7A800BC5482 /* AdminEditToteViewController.m */; };
+		AF6ECFA41586C7A800BC5482 /* AdminEditToteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF6ECFA21586C7A800BC5482 /* AdminEditToteViewController.xib */; };
 		AF7A4FA5157BAF4A006C3FD8 /* SyncEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */; };
 		AF7A4FAA157EDF82006C3FD8 /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */; };
 		AF7A5C9D1586A21C0048CD2F /* ETNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5C9C1586A21C0048CD2F /* ETNavController.m */; };
+		AF7A5CAA1586C16B0048CD2F /* ToteAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5CA91586C16B0048CD2F /* ToteAdminViewController.m */; };
 		AF8251611573D3E40002C619 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251601573D3E40002C619 /* UIKit.framework */; };
 		AF8251631573D3E40002C619 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251621573D3E40002C619 /* Foundation.framework */; };
 		AF8251651573D3E40002C619 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8251641573D3E40002C619 /* CoreGraphics.framework */; };
@@ -108,11 +111,16 @@
 		AF569A5E157860B8003853B7 /* Tote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tote.m; sourceTree = "<group>"; };
 		AF569A601578642A003853B7 /* ToteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToteStore.h; sourceTree = "<group>"; };
 		AF569A611578642A003853B7 /* ToteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToteStore.m; sourceTree = "<group>"; };
+		AF6ECFA01586C7A800BC5482 /* AdminEditToteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminEditToteViewController.h; sourceTree = "<group>"; };
+		AF6ECFA11586C7A800BC5482 /* AdminEditToteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminEditToteViewController.m; sourceTree = "<group>"; };
+		AF6ECFA21586C7A800BC5482 /* AdminEditToteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminEditToteViewController.xib; sourceTree = "<group>"; };
 		AF7A4FA3157BAF4A006C3FD8 /* SyncEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncEngine.h; sourceTree = "<group>"; };
 		AF7A4FA4157BAF4A006C3FD8 /* SyncEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncEngine.m; sourceTree = "<group>"; };
 		AF7A4FA9157EDF82006C3FD8 /* CheckoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutViewController.xib; sourceTree = "<group>"; };
 		AF7A5C9B1586A21C0048CD2F /* ETNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETNavController.h; sourceTree = "<group>"; };
 		AF7A5C9C1586A21C0048CD2F /* ETNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETNavController.m; sourceTree = "<group>"; };
+		AF7A5CA81586C16B0048CD2F /* ToteAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToteAdminViewController.h; sourceTree = "<group>"; };
+		AF7A5CA91586C16B0048CD2F /* ToteAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToteAdminViewController.m; sourceTree = "<group>"; };
 		AF82515C1573D3E40002C619 /* etote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8251601573D3E40002C619 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF8251621573D3E40002C619 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +205,7 @@
 		AF569A4015746A8F003853B7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF7A5CA61586C1230048CD2F /* Tote Admin Controller */,
 				AF7A4F9C157BAB43006C3FD8 /* Splash Screen */,
 				AF7A4F9D157BAB4F006C3FD8 /* Categories List Screen */,
 				AF7A4F9E157BAB5A006C3FD8 /* Documents List Screen */,
@@ -354,6 +363,18 @@
 			name = "Sync Engine";
 			sourceTree = "<group>";
 		};
+		AF7A5CA61586C1230048CD2F /* Tote Admin Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF7A5CA81586C16B0048CD2F /* ToteAdminViewController.h */,
+				AF7A5CA91586C16B0048CD2F /* ToteAdminViewController.m */,
+				AF6ECFA01586C7A800BC5482 /* AdminEditToteViewController.h */,
+				AF6ECFA11586C7A800BC5482 /* AdminEditToteViewController.m */,
+				AF6ECFA21586C7A800BC5482 /* AdminEditToteViewController.xib */,
+			);
+			name = "Tote Admin Controller";
+			sourceTree = "<group>";
+		};
 		AF8251511573D3E30002C619 = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +494,7 @@
 				65272DA11582541500883FC6 /* SplashPageGraphic@2x.png in Resources */,
 				65272DA21582541500883FC6 /* SplashPageGraphic@2x~ipad.png in Resources */,
 				65272DA31582541500883FC6 /* SplashPageGraphic~ipad.png in Resources */,
+				AF6ECFA41586C7A800BC5482 /* AdminEditToteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +533,8 @@
 				AF32CE6C1580EB44000CC802 /* ImageDemoGridViewCell.m in Sources */,
 				AF32CE751581045E000CC802 /* CustomBadge.m in Sources */,
 				AF7A5C9D1586A21C0048CD2F /* ETNavController.m in Sources */,
+				AF7A5CAA1586C16B0048CD2F /* ToteAdminViewController.m in Sources */,
+				AF6ECFA31586C7A800BC5482 /* AdminEditToteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

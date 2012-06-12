@@ -9,9 +9,9 @@
 #import "SyncViewController.h"
 #import "SyncEngine.h"
 #import "ToteStore.h"
+#import "ToteAdminViewController.h"
 
 @interface SyncViewController ()
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *syncActivityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *syncProgressBar;
 
@@ -22,7 +22,6 @@
 @synthesize gradientView;
 @synthesize serverAddressField;
 @synthesize ownerNameField;
-@synthesize syncActivityIndicator;
 @synthesize statusLabel;
 @synthesize syncProgressBar;
 
@@ -30,10 +29,13 @@
 {   
     [syncProgressBar setProgress:0];
     [syncProgressBar setHidden:NO];
-    [syncActivityIndicator startAnimating];
     SyncEngine *syncEngine = [[SyncEngine alloc] init];
     [syncEngine setDelegate:self];
     [syncEngine startSync];
+}
+- (IBAction)toteAdminButtonSelected:(id)sender {
+    ToteAdminViewController *toteAdminController = [[ToteAdminViewController alloc] init];
+    [[self navigationController] pushViewController:toteAdminController animated:YES];
 }
 
 -(void)statusChangedTo:(NSString *)statusString
@@ -48,7 +50,7 @@
 }
 -(void)syncComlete
 {
-    [syncActivityIndicator stopAnimating];
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -94,7 +96,6 @@
 
 - (void)viewDidUnload
 {
-    [self setSyncActivityIndicator:nil];
     [self setStatusLabel:nil];
     [self setSyncProgressBar:nil];
     [self setToteStatusLabel:nil];

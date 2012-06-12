@@ -146,7 +146,7 @@
                                      [NSDictionary dictionaryWithObjectsAndKeys:
                                       tote.name,@"name",
                                       tote.customerComments,@"customer_comments",
-                                      @"owner comments",@"owner_comments",
+                                      tote.notes,@"owner_comments",
                                       owner,@"owner",
                                       tote.email,@"email",
                                       tote.documentIDs, @"documents",
