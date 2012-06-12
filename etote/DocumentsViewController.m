@@ -85,15 +85,17 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    
-    if(!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    }
+    UITableViewCell *cell;
     
     if(indexPath.section == 0)
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ClearCell"];
+        
+        if(!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ClearCell"];
+        }
+        
         [[cell textLabel] setText:@""];
         UIButton *addAllButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [addAllButton setFrame:CGRectMake(0, 0, 120, 30)];
@@ -102,10 +104,17 @@
         [addAllButton addTarget:self action:@selector(addAllButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [cell setAccessoryView:addAllButton];
         [cell setBackgroundColor:[UIColor clearColor]];
-        cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];        
+        cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     else 
     {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"DocumentCell"];
+        
+        if(!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DocumentCell"];
+        }
         
         Document *document = [documents objectAtIndex:[indexPath row]];
         [[cell textLabel] setText:[document title]];
