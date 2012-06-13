@@ -39,6 +39,8 @@
 - (void)settingsButtonSelected:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert setAlertViewStyle:UIAlertViewStyleSecureTextInput];
+	UITextField *passwordField = [alert textFieldAtIndex:0];
+	passwordField.delegate = self;
     [alert show];
     
 }
@@ -53,6 +55,13 @@
         SyncViewController *syncViewController = [[SyncViewController alloc] init];
         [[self navigationController] pushViewController:syncViewController animated:YES];
     }
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	UIAlertView *alert = (UIAlertView *)[textField  superview];
+	// call our handler first, then dismiss the box
+	[self alertView:alert clickedButtonAtIndex:1];
+	[alert dismissWithClickedButtonIndex:1 animated:YES];
+	return NO;
 }
 - (void)viewDidLoad
 {

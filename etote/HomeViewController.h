@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OBGradientView.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet OBGradientView *gradientView;
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeTextLabel;
