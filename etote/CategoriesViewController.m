@@ -178,6 +178,7 @@
     [documentsView setDocuments:documents];
     
     [[self navigationController] pushViewController:documentsView animated:YES];
+	[[self gridView] deselectItemAtIndex:index animated:NO];
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) aGridView cellForItemAtIndex: (NSUInteger) index
