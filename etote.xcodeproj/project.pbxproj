@@ -15,6 +15,7 @@
 		65272DA11582541500883FC6 /* SplashPageGraphic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65272D9D1582541500883FC6 /* SplashPageGraphic@2x.png */; };
 		65272DA21582541500883FC6 /* SplashPageGraphic@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 65272D9E1582541500883FC6 /* SplashPageGraphic@2x~ipad.png */; };
 		65272DA31582541500883FC6 /* SplashPageGraphic~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 65272D9F1582541500883FC6 /* SplashPageGraphic~ipad.png */; };
+		659DC8B61588625300485BD2 /* DocumenteQLPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659DC8B51588625300485BD2 /* DocumenteQLPreviewController.m */; };
 		AF1F514B1579878C007B5025 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1F514A1579878C007B5025 /* QuartzCore.framework */; };
 		AF1F51521579AE5D007B5025 /* OBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1F51511579AE5D007B5025 /* OBGradientView.m */; };
 		AF32CE601580E7CE000CC802 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF32CE4A1580E7CE000CC802 /* AQGridView.m */; };
@@ -66,6 +67,8 @@
 		65272D9D1582541500883FC6 /* SplashPageGraphic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashPageGraphic@2x.png"; sourceTree = "<group>"; };
 		65272D9E1582541500883FC6 /* SplashPageGraphic@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashPageGraphic@2x~ipad.png"; sourceTree = "<group>"; };
 		65272D9F1582541500883FC6 /* SplashPageGraphic~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashPageGraphic~ipad.png"; sourceTree = "<group>"; };
+		659DC8B41588625300485BD2 /* DocumenteQLPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumenteQLPreviewController.h; sourceTree = "<group>"; };
+		659DC8B51588625300485BD2 /* DocumenteQLPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumenteQLPreviewController.m; sourceTree = "<group>"; };
 		AF1F514A1579878C007B5025 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF1F51501579AE5D007B5025 /* OBGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBGradientView.h; path = etote/OBGradientView.h; sourceTree = "<group>"; };
 		AF1F51511579AE5D007B5025 /* OBGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OBGradientView.m; path = etote/OBGradientView.m; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 			children = (
 				AF569A3C15741D87003853B7 /* DocumentsViewController.h */,
 				AF569A3D15741D87003853B7 /* DocumentsViewController.m */,
+				659DC8B41588625300485BD2 /* DocumenteQLPreviewController.h */,
+				659DC8B51588625300485BD2 /* DocumenteQLPreviewController.m */,
 			);
 			name = "Documents List Screen";
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				AF7A5C9D1586A21C0048CD2F /* ETNavController.m in Sources */,
 				AF7A5CAA1586C16B0048CD2F /* ToteAdminViewController.m in Sources */,
 				AF6ECFA31586C7A800BC5482 /* AdminEditToteViewController.m in Sources */,
+				659DC8B61588625300485BD2 /* DocumenteQLPreviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

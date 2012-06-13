@@ -12,6 +12,9 @@
 #import "Document.h"
 #import "OBGradientView.h"
 #import "CheckoutViewController.h"
+#import "DocumenteQLPreviewController.h"
+
+
 
 @implementation DocumentsViewController
 @synthesize documents;
@@ -61,7 +64,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    QLPreviewController *preview = [[QLPreviewController alloc] init];
+    DocumenteQLPreviewController *preview = [[DocumenteQLPreviewController alloc] init];
     
     [preview setDataSource:self];
     [preview setCurrentPreviewItemIndex:indexPath.row];
