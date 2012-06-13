@@ -10,6 +10,7 @@
 #import "SyncEngine.h"
 #import "ToteStore.h"
 #import "ToteAdminViewController.h"
+#import "CategoriesStore.h"
 
 @interface SyncViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -50,7 +51,16 @@
 }
 -(void)syncComlete
 {
-
+    BOOL success = [[CategoriesStore sharedStore] saveChanges];
+    if(!success)
+    {
+        NSLog(@"Error archiving categories");
+    }
+    success = [[ToteStore sharedStore] saveChanges];
+    if(!success)
+    {
+        NSLog(@"Error archiving totes");
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

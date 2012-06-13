@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
-#import "CategoriesStore.h"
-#import "ToteStore.h"
 #import "ETNavController.h"
 
 @implementation AppDelegate
@@ -38,16 +36,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    BOOL success = [[CategoriesStore sharedStore] saveChanges];
-    if(!success)
-    {
-        NSLog(@"Error archiving categories");
-    }
-    success = [[ToteStore sharedStore] saveChanges];
-    if(!success)
-    {
-        NSLog(@"Error archiving totes");
-    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
