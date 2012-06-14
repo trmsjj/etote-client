@@ -36,6 +36,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

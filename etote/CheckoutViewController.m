@@ -65,7 +65,10 @@
     }
     [thankyouLabel setText:@"We will email you the literature when we get back to the office."];
     [[CategoriesStore sharedStore] emptyTote];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:NO];
+    [[CategoriesStore sharedStore] saveChanges];
+    [[ToteStore sharedStore] saveChanges];
+    
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:NO];
 }
 
 - (void)timerFired:(NSTimer *)theTimer
