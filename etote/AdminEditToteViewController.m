@@ -24,6 +24,7 @@
 - (IBAction)saveButtonSelected:(id)sender {
     [salesPersonCommentsField resignFirstResponder];
     [tote setNotes:[salesPersonCommentsField text]];
+    [[ToteStore sharedStore] saveChanges];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

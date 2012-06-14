@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tote.h"
+#import "ToteStore.h"
 
 @interface AdminEditToteViewController : UIViewController {
     Tote *tote;
