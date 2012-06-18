@@ -12,13 +12,13 @@
 {
     NSString* title;
     NSString* remoteURL;
-    NSString* localPath;
     BOOL inTote;
     NSNumber* documentID;
 }
 @property NSString* title;
 @property NSString* remoteURL;
-@property NSString* localPath;
 @property BOOL inTote;
 @property NSNumber* documentID;
+
+- (NSString *) localPath;
 @end

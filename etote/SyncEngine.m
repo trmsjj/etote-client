@@ -105,23 +105,16 @@
             
             //Download Document
             NSURL  *url = [NSURL URLWithString:[document remoteURL]];
-            
-            NSArray *urlParts = [[document remoteURL] componentsSeparatedByString:@"/"];
-            NSString *fileName = [urlParts lastObject];
             NSData *urlData = [NSData dataWithContentsOfURL:url];
+            
             if ( urlData )
             {
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [delegate  statusChangedTo:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
                     [delegate progressChangedTo:((float)(documentsDownloaded + 1) / totalDocuments)];
                 });
-                
-                NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-                NSString  *documentsDirectory = [paths objectAtIndex:0];  
-                
-                NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
-                [document setLocalPath:filePath];
-                [urlData writeToFile:filePath atomically:YES];
+
+                [urlData writeToFile:[document localPath] atomically:YES];
             }
             //Add Document to newCategory
             documentsDownloaded++;

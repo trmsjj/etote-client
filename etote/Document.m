@@ -11,7 +11,6 @@
 @implementation Document
 @synthesize title;
 @synthesize remoteURL;
-@synthesize localPath;
 @synthesize inTote;
 @synthesize documentID;
 
@@ -20,7 +19,6 @@
     
     [aCoder encodeObject:title forKey:@"title"];
     [aCoder encodeObject:remoteURL forKey:@"remoteURL"];
-    [aCoder encodeObject:localPath forKey:@"localPath"];
     [aCoder encodeBool:inTote forKey:@"inTotoe"];
     [aCoder encodeObject:documentID forKey:@"documentID"];
 }
@@ -31,10 +29,21 @@
     if(self) {
         self.title = [aDecoder decodeObjectForKey:@"title"];
         self.remoteURL = [aDecoder decodeObjectForKey:@"remoteURL"];
-        self.localPath = [aDecoder decodeObjectForKey:@"localPath"];
         self.inTote = [aDecoder decodeBoolForKey:@"inTote"];
         self.documentID = [aDecoder decodeObjectForKey:@"documentID"];
     }
     return self;
+}
+
+- (NSString *)localPath
+{
+    NSArray *urlParts = [remoteURL componentsSeparatedByString:@"/"];
+    NSString *fileName = [urlParts lastObject];
+    NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString  *documentsDirectory = [paths objectAtIndex:0];  
+    
+    NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
+    
+    return filePath;
 }
 @end

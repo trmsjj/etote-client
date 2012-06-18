@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "etote/SyncEngine.m"
-         timestampString = "361732470.241538"
+         timestampString = "361733240.253018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "177"
-         endingLineNumber = "177"
+         startingLineNumber = "170"
+         endingLineNumber = "170"
          landmarkName = "-pushTotes"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,12 +86,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "etote/SyncEngine.m"
-         timestampString = "361732470.241538"
+         timestampString = "361733240.253018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-pushTotes"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "etote/Document.m"
+         timestampString = "361733293.50101"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-localPath"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
