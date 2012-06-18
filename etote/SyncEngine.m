@@ -141,12 +141,13 @@
         Tote *tote = [totes objectAtIndex:i];
         if(!tote.synced)
         {
-            
+            //Fix for nil owner comments
+            NSString *ownerComments = tote.notes ? tote.notes : @"";
             NSDictionary *request = [NSDictionary dictionaryWithObjectsAndKeys:
                                      [NSDictionary dictionaryWithObjectsAndKeys:
                                       tote.name,@"name",
                                       tote.customerComments,@"customer_comments",
-                                      tote.notes,@"owner_comments",
+                                      ownerComments,@"owner_comments",
                                       owner,@"owner",
                                       tote.email,@"email",
                                       tote.documentIDs, @"documents",
@@ -168,13 +169,19 @@
             NSHTTPURLResponse *response = nil;
             NSError *error = nil;
             
-           [NSURLConnection sendSynchronousRequest:req
+           NSData *returnData = [NSURLConnection sendSynchronousRequest:req
                                  returningResponse:&response
                                              error:&error];
-
+            
+            
             if([response statusCode] == 201)
             {
                 tote.synced = YES;
+            }
+            else
+            {
+                NSString *response = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", response);
             }
         }
     }
