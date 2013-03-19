@@ -41,6 +41,7 @@
     [alert setAlertViewStyle:UIAlertViewStyleSecureTextInput];
 	UITextField *passwordField = [alert textFieldAtIndex:0];
 	passwordField.delegate = self;
+    [alert setTag:1];
     [alert show];
     
 }
