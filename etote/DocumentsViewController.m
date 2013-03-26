@@ -64,6 +64,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == 0)
+        return;
+    
     DocumenteQLPreviewController *preview = [[DocumenteQLPreviewController alloc] init];
     
     [preview setDataSource:self];
@@ -100,6 +103,7 @@
         }
         
         [[cell textLabel] setText:@""];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIButton *addAllButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [addAllButton setFrame:CGRectMake(0, 0, 120, 30)];
         NSString *buttonText = [self allDocumentsSelected] ? @"Remove All" : @"Add All";
