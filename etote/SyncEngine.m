@@ -61,7 +61,7 @@
     for(int i=0; i < [categoriesFromServer count]; i++)
     {
         NSDictionary *category = [categoriesFromServer objectAtIndex:i];
-        NSArray *documents = [category objectForKey:@"documents"];
+        NSArray *documents = [category objectForKey:@"document_ids"];
         totalDocuments += [documents count];
     }
     
@@ -69,6 +69,7 @@
     [categoriesStore clearStore];
     for(int i=0; i < [categoriesFromServer count]; i++)
     {
+        
         Category *newCategory = [categoriesStore createCategory];
         NSDictionary *category = [categoriesFromServer objectAtIndex:i];
         [newCategory setName:[category objectForKey:@"name"]];
@@ -95,13 +96,22 @@
         }
         
         [newCategory setDocuments:[[NSMutableArray  alloc] init]];
-        NSArray *documents = [category objectForKey:@"documents"];
+        NSArray *documents = [category objectForKey:@"document_ids"];
         for(int j=0; j < [documents count]; j++)
         {
+            //We need to download the data for the document
+            NSNumber* document_id = [documents objectAtIndex:j];
+            NSData *documentData = [NSData dataWithContentsOfURL:
+                            [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", server, @"/api/v1/documents/", document_id]]];
+            
+            NSDictionary* documentJson = [NSJSONSerialization JSONObjectWithData:documentData options:kNilOptions error:nil];
+            
+            NSDictionary *documentFromServer = [documentJson objectForKey:@"document"];
+            
             Document *document = [[Document alloc] init];
-            [document setTitle:[[documents objectAtIndex:j] objectForKey:@"name"]];
-            [document setRemoteURL:[[documents objectAtIndex:j] objectForKey:@"url"]];
-            [document setDocumentID:[[documents objectAtIndex:j] objectForKey:@"id"]];
+            [document setTitle:[documentFromServer objectForKey:@"name"]];
+            [document setRemoteURL:[documentFromServer objectForKey:@"url"]];
+            [document setDocumentID:[documentFromServer objectForKey:@"id"]];
             
             //Download Document
             NSURL  *url = [NSURL URLWithString:[document remoteURL]];
@@ -110,7 +120,7 @@
             if ( urlData )
             {
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    [delegate  statusChangedTo:[NSString stringWithFormat:@"%@\n%@", @"Downloading", fileName]];
+                    [delegate  statusChangedTo:[NSString stringWithFormat:@"%@\n%@", @"Downloading", [document title]]];
                     [delegate progressChangedTo:((float)(documentsDownloaded + 1) / totalDocuments)];
                 });
 
