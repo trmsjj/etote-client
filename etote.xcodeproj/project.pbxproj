@@ -230,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				28713E65157AC01A0065069C /* etote114.png */,
+				AF7A4FA1157BAB93006C3FD8 /* 3rd party */,
 				28713E63157AC0160065069C /* etote57.png */,
 				28713E4D157668EB0065069C /* etote72.png */,
 				28713E4A157668AD0065069C /* etote144.png */,
@@ -337,6 +338,7 @@
 		AF7A4FA1157BAB93006C3FD8 /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
+				AF8251671573D3E40002C619 /* Supporting Files */,
 				AF32CE731581045E000CC802 /* CustomBadge.h */,
 				AF32CE741581045E000CC802 /* CustomBadge.m */,
 				AF32CE471580E7A6000CC802 /* AQGridView */,
@@ -383,7 +385,6 @@
 				AF8251661573D3E40002C619 /* etote */,
 				AF7A4F94157BAAC7006C3FD8 /* images */,
 				AF7A4F96157BAAD2006C3FD8 /* icons */,
-				AF7A4FA1157BAB93006C3FD8 /* 3rd party */,
 				AF82515F1573D3E40002C619 /* Frameworks */,
 				AF82515D1573D3E40002C619 /* Products */,
 			);
@@ -416,7 +417,6 @@
 				AF8251701573D3E40002C619 /* AppDelegate.m */,
 				AF569A4015746A8F003853B7 /* Controllers */,
 				AF569A3F15746A7A003853B7 /* Models */,
-				AF8251671573D3E40002C619 /* Supporting Files */,
 			);
 			path = etote;
 			sourceTree = "<group>";
@@ -430,6 +430,7 @@
 				AF82516E1573D3E40002C619 /* etote-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = etote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

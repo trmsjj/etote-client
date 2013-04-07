@@ -16,7 +16,7 @@
 @implementation SyncEngine
 @synthesize delegate;
 
--(void) startSync
+-(void) startSync:(BOOL)totesOnly
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -28,10 +28,12 @@
                 [delegate statusChangedTo:@"Sending new eTotes to server."];
             });
             [self pushTotes];
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [delegate statusChangedTo:@"Begin Syncing documents."];
-            });
-            [self pullCategoriesAndDocuments];
+            if(totesOnly == NO) {
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [delegate statusChangedTo:@"Begin Syncing documents."];
+                });
+                [self pullCategoriesAndDocuments];
+            }
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [delegate statusChangedTo:@"Sync Completed."];
             });

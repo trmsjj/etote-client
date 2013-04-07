@@ -21,4 +21,5 @@
 - (NSArray *)allTotes;
 - (Tote *)createTote;
 - (int) unsyncedToteCount;
+- (void) removeSynced;
 @end

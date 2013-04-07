@@ -32,8 +32,18 @@
     [syncProgressBar setHidden:NO];
     SyncEngine *syncEngine = [[SyncEngine alloc] init];
     [syncEngine setDelegate:self];
-    [syncEngine startSync];
+    [syncEngine startSync:NO];
 }
+
+- (IBAction)syncTotesButtonSelected:(id)sender
+{
+    [syncProgressBar setProgress:0];
+    [syncProgressBar setHidden:NO];
+    SyncEngine *syncEngine = [[SyncEngine alloc] init];
+    [syncEngine setDelegate:self];
+    [syncEngine startSync:YES];
+}
+
 - (IBAction)toteAdminButtonSelected:(id)sender {
     ToteAdminViewController *toteAdminController = [[ToteAdminViewController alloc] init];
     [[self navigationController] pushViewController:toteAdminController animated:YES];
@@ -61,6 +71,7 @@
     {
         NSLog(@"Error archiving totes");
     }
+    [[self syncProgressBar] setHidden:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

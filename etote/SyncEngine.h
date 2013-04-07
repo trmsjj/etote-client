@@ -22,6 +22,6 @@
 }
 @property id <SyncEngineDelegate> delegate;
 -(BOOL)pingServer;
--(void)startSync;
+-(void)startSync:(BOOL)totesOnly;
 
 @end

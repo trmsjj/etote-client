@@ -57,41 +57,67 @@
 }
 
 #pragma mark - Table view data source
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Admin";
+    } else
+        return @"Totes";
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[ToteStore sharedStore] allTotes] count];
+    if(section == 0)
+        return 1;
+    else
+        return [[[ToteStore sharedStore] allTotes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(indexPath.section == 0) {
+        NSString *CellIdentifier = @"ActionCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if(!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActionCell"];
+        }
+        
+        cell.textLabel.text = @"Remove Synced Totes";
     
-    // Configure the cell...
-    if(!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        return cell;
     }
-    NSArray *totes = [[ToteStore sharedStore] allTotes];
-    //Reverse the array
-    NSArray *reversed = [[totes reverseObjectEnumerator] allObjects];
+    
+    if (indexPath.section == 1) {
+        NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        // Configure the cell...
+        if(!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        }
+        NSArray *totes = [[ToteStore sharedStore] allTotes];
+        //Reverse the array
+        NSArray *reversed = [[totes reverseObjectEnumerator] allObjects];
 
-    Tote *tote = [reversed objectAtIndex:indexPath.row];
-    [[cell textLabel] setText:tote.name];
-    [[cell detailTextLabel] setText:tote.email];
-    if (tote.synced) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        Tote *tote = [reversed objectAtIndex:indexPath.row];
+        [[cell textLabel] setText:tote.name];
+        [[cell detailTextLabel] setText:tote.email];
+        if (tote.synced) {
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        }
+        else {
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        }
+        return cell;
     }
-    else {
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    }
-    return cell;
+    return NULL;
 }
 
 /*
@@ -137,14 +163,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *totes = [[ToteStore sharedStore] allTotes];
-    //Reverse the array
-    NSArray *reversed = [[totes reverseObjectEnumerator] allObjects];
-    
-    AdminEditToteViewController *editView = [[AdminEditToteViewController alloc] init];
-    Tote *tote = [reversed objectAtIndex:indexPath.row];
-    editView.tote = tote;
-    [[self navigationController] pushViewController:editView animated:YES];
+    if(indexPath.section == 0) {
+        [[ToteStore sharedStore] removeSynced];
+        [self.tableView reloadData];
+    } else {
+        NSArray *totes = [[ToteStore sharedStore] allTotes];
+        //Reverse the array
+        NSArray *reversed = [[totes reverseObjectEnumerator] allObjects];
+        
+        AdminEditToteViewController *editView = [[AdminEditToteViewController alloc] init];
+        Tote *tote = [reversed objectAtIndex:indexPath.row];
+        editView.tote = tote;
+        [[self navigationController] pushViewController:editView animated:YES];
+    }
     
 }
 

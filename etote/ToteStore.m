@@ -79,4 +79,17 @@
     }
     return returnCount;
 }
+
+-(void) removeSynced
+{
+    NSMutableArray* totesToRemove = [[NSMutableArray alloc] init];
+    for (int i=0; i < [allTotes count]; i++) {
+        if([[allTotes objectAtIndex:i] synced])
+            [totesToRemove addObject:allTotes[i]];
+    }
+    
+    for (int i=0; i < [totesToRemove count]; i++) {
+        [allTotes removeObject:totesToRemove[i]];
+    }
+}
 @end
